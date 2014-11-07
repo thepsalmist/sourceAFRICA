@@ -206,7 +206,7 @@ workspace: !omap
   - edit_x: Rediger %s
   - editing_notes_sections: Redigering af noter og sektioner
   - email: e-mail
-  - email_for_assistance: "Hvis du har brug for hj\xC3\xA6lp, kan du kontakte os p\xC3\xA5 support@documentcloud.org."
+  - email_for_assistance: "Hvis du har brug for hj\xC3\xA6lp, kan du kontakte os p\xC3\xA5 support@codeforafrica.org."
   - email_when_complete: "Email mig, n\xC3\xA5r %sdokumenter er%s f\xC3\xA6rdige med at blive bearbejdet."
   - embed_a_note: Indlejr en note
   - embed_document: Indlejr dette dokument

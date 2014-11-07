@@ -333,7 +333,7 @@ workspace:
     el documento conjunto%s los documentos publicados, se abrirán a la URL donde se
     publicaron originalmente, mientras que otros documentos públicos se abrirá el sourceAFRICA.
   entities_unavailable: Las entidades no están disponibles temporalmente.
-  email_for_assistance: Si usted necesita ayuda, por favor envíenos un email a support@documentcloud.org.
+  email_for_assistance: Si usted necesita ayuda, por favor envíenos un email a support@codeforafrica.org.
   open: Abierto
 
   by_relevance: por relevancia
