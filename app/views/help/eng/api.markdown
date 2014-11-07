@@ -87,7 +87,7 @@ secure          | (optional) If you're dealing with a truly sensitive document, 
 
 Using Ruby's RestClient library you could do:
 
-    RestClient.post('https://ME%40TEST.COM:SECRET@www.documentcloud.org/api/upload.json',
+    RestClient.post('https://ME%40TEST.COM:SECRET@www.sourceafrica.net/api/upload.json',
       :file   => File.new('/full/path/to/document/document.pdf','rb'),
       :title  => "2008 Blagojevich Tax Return",
       :source => "U.S. Attorney's Office",

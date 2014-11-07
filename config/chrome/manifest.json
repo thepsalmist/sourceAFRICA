@@ -10,7 +10,7 @@
   "permissions": [],
   "app": {
     "urls": [
-      "http://www.documentcloud.org/public"
+      "http://www.sourceafrica.net/public"
     ],
     "launch": {
       "web_url": "http://www.sourceafrica.net/public"
