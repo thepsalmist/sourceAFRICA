@@ -1,10 +1,10 @@
 <% secrets = YAML.load_file('./secrets/secrets.yml')[ENV['RAILS_ENV'] || "development"] %>
 defaults: &defaults
-  cloud_crowd_server:   http://dev.dcloud.org:8080
-  server_root:          dev.dcloud.org
+  cloud_crowd_server:   http://dev.sourceafrica.net:8080
+  server_root:          dev.sourceafrica.net
   aws_zone:             eu-west-1
   preconfigured_ami_id: ami-508c7538
-  asset_root:         "dev.dcloud.org"
+  asset_root:           "dev.sourceafrica.net"
 
 development:
   <<: *defaults
@@ -19,7 +19,7 @@ production:
   <<: *defaults
   cloud_crowd_server: <%= secrets['db_host'] %>:8080
   server_root:        dev.sourceafrica.net
-  asset_root:         "s3.amazonaws.com/s3.documentcloud.org"
+  asset_root:         "s3.sourceafrica.net.s3-website-eu-west-1.amazonaws.com"
   db_volume_id:       vol-d4c305bd
 
 test:

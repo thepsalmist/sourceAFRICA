@@ -100,7 +100,7 @@ http://www.postgresql.org/docs/8.3/static/contrib.html
 * Install the dependencies and gems listed in PROVISIONING, as appropriate 
   (ie, don't install Tesseract unless you're planning on doing OCR).
 
-* Configure Nginx and /etc/hosts to serve dev.dcloud.org locally. An example
+* Configure Nginx and /etc/hosts to serve dev.sourceafrica.net locally. An example
   Nginx configuration is stored in config/server/nginx
 
 * Load the development_structure.sql into the database listed in config/database.yml.
