@@ -57,7 +57,7 @@ namespace :build do
     end
     FileUtils.cp_r('public/images', 'build/images')
 
-    # Export back to DocumentCloud
+    # Export back to sourceAFRICA
     FileUtils.cp_r('build/images', '../documentcloud/public/viewer')
     `cat build/viewer.js build/templates.js > build/viewer_new.js`
     FileUtils.rm_r(['build/viewer.js', 'build/templates.js'])

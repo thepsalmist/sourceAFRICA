@@ -1,5 +1,5 @@
 {
-  "name": "DocumentCloud",
+  "name": "sourceAFRICA",
   "version": "1.0.1",
   "description": "Browse the primary source documents behind the news.",
   "icons": { 
@@ -13,7 +13,7 @@
       "http://www.documentcloud.org/public"
     ],
     "launch": {
-      "web_url": "http://www.documentcloud.org/public"
+      "web_url": "http://www.sourceafrica.net/public"
     }
   }
 }

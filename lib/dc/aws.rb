@@ -77,7 +77,7 @@ module DC
                                             :image_id          => options[:ami],
                                             :count             => 1,
                                             :security_groups   => ['default'],
-                                            :key_name          => 'DocumentCloud 2014-04-12',
+                                            :key_name          => 'sourceAFRICA 2014-04-12',
                                             :instance_type     => options[:type],
                                             :availability_zone => DC::CONFIG['aws_zone']
                                           })

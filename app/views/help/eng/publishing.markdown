@@ -4,7 +4,7 @@ Ready to share make your documents public? Publish individual documents, embed a
 
 # Publishing Individual Documents
 
-To publish any document from DocumentCloud, either download a standalone copy of the viewer, or generate, copy, and paste a simple embed code for that document. We strongly encourage you to embed code that links back to DocumentCloud for most documents. The instructions that follow assume some basic familiarity with HTML, but we've tried to keep the embedding process as simple as possible.
+To publish any document from sourceAFRICA, either download a standalone copy of the viewer, or generate, copy, and paste a simple embed code for that document. We strongly encourage you to embed code that links back to sourceAFRICA for most documents. The instructions that follow assume some basic familiarity with HTML, but we've tried to keep the embedding process as simple as possible.
 
 We maintain a list of some of our [favorite embedded documents][] as examples of how newsrooms might embed documents.
 
@@ -16,9 +16,9 @@ Before you embed a document on your site, we encourage you to fill in a couple o
 
 Select a document, open the "Publish" menu, and click "Embed Document Viewer", or right-click the document, and select "Embed Document Viewer".
 
-A dialog will appear, asking you to fill in two additional pieces of information: the **Related Article URL**, and the **Published URL**. The **Related Article URL** is the location of the article that uses this document as source material &mdash; adding this URL means that readers who find the document first will still find your reporting, too. The **Published URL** is the page where the document is embedded. Most users won't need to provide this &mdash; [pixel ping](http://www.propublica.org/nerds/item/pixel-ping-a-nodejs-stats-tracker) can usually tell us where the document is embedded. If a document might be accessed at more than one URL, however, you can specify the URL we should send users to if they find the document through a search of DocumentCloud.
+A dialog will appear, asking you to fill in two additional pieces of information: the **Related Article URL**, and the **Published URL**. The **Related Article URL** is the location of the article that uses this document as source material &mdash; adding this URL means that readers who find the document first will still find your reporting, too. The **Published URL** is the page where the document is embedded. Most users won't need to provide this &mdash; [pixel ping](http://www.propublica.org/nerds/item/pixel-ping-a-nodejs-stats-tracker) can usually tell us where the document is embedded. If a document might be accessed at more than one URL, however, you can specify the URL we should send users to if they find the document through a search of sourceAFRICA.
 
-On step one, you'll also see a checkbox offering to make the document public, if it's not already. While it's possible to paste the embed code before the document is made public, it won't start working until you've published the document on DocumentCloud.
+On step one, you'll also see a checkbox offering to make the document public, if it's not already. While it's possible to paste the embed code before the document is made public, it won't start working until you've published the document on sourceAFRICA.
 
 If you're not yet ready to make the document public, you can schedule it to be published at a future date. Click "Set Publication Date" in the "Publish" menu, and choose a date and an hour when you would like the document to be made public. This is useful if you already know when your story is going live, or if your article is running in the middle of the night.
 
@@ -74,13 +74,13 @@ You'll be asked to select the note to embed, and will be able to preview the emb
       dc.embed.loadNote('http://www.documentcloud.org/documents/223/annotations/237.js');
     </script>
 
-Copy and paste the HTML onto your own site. Clicking the title or the image will open the document. Documents will open in DocumentCloud unless you've published them elsewhere. We use [pixel ping](http://www.propublica.org/nerds/item/pixel-ping-a-nodejs-stats-tracker) to guess a document's Published URL, so if users won't find the document another way, you may need to add the Published URL manually.
+Copy and paste the HTML onto your own site. Clicking the title or the image will open the document. Documents will open in sourceAFRICA unless you've published them elsewhere. We use [pixel ping](http://www.propublica.org/nerds/item/pixel-ping-a-nodejs-stats-tracker) to guess a document's Published URL, so if users won't find the document another way, you may need to add the Published URL manually.
 
 # <span id="docset">Embedding a Document Set</span>
 
 ![Embed Search Menu][]
 
-If you'd rather embed a complete set of documents, DocumentCloud can provide the HTML to do that as well. Readers will be able to search or filter through as many documents as you'd like to share with them.
+If you'd rather embed a complete set of documents, sourceAFRICA can provide the HTML to do that as well. Readers will be able to search or filter through as many documents as you'd like to share with them.
 
 You can embed any set of documents, whether or not you uploaded them: any document that has already been published by their contributor will open to the URL at which it originally appeared.
 
@@ -110,7 +110,7 @@ Paste the code into on your website, and you'll see the set of documents appear.
 
 <img src="/images/help/search_embed.png" class="full_line" />
 
-Click on any document to open it. If you've previously published the document on your website, we should have automatically detected its URL, and it will open at that URL. If the document is public but has not yet been published, it will open on DocumentCloud.org. If you're sure that you've published a document but it still opens on DocumentCloud.org, open the "Edit" menu, click "Published URL", and manually set the URL at which the document has been published.
+Click on any document to open it. If you've previously published the document on your website, we should have automatically detected its URL, and it will open at that URL. If the document is public but has not yet been published, it will open on sourceAFRICA.org. If you're sure that you've published a document but it still opens on sourceAFRICA.org, open the "Edit" menu, click "Published URL", and manually set the URL at which the document has been published.
 
 Still have questions about publishing and embedding? Don't hesitate to [contact us][].
 

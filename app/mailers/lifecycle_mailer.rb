@@ -75,7 +75,7 @@ class LifecycleMailer < ActionMailer::Base
     @message = params[:message]
     @email   = params[:email]
     mail({
-        :subject  => "DocumentCloud message from #{name}",
+        :subject  => "sourceAFRICA message from #{name}",
         :from     => NO_REPLY,
         :reply_to => account ? account.email : params[:email],
         :to       => SUPPORT
@@ -88,7 +88,7 @@ class LifecycleMailer < ActionMailer::Base
     @params = params
     @error  = error
     mail({
-        :subject  => "DocumentCloud exception (#{Rails.env}:#{`hostname`.chomp}): #{error.class.name}",
+        :subject  => "sourceAFRICA exception (#{Rails.env}:#{`hostname`.chomp}): #{error.class.name}",
         :from     => NO_REPLY,
         :to       => SUPPORT
       })

@@ -1489,7 +1489,7 @@ workspace: !omap
   - text_tools: !binary |
       5paH5a2X5bel5YW3
 
-  - the_api: DocumentCloud API
+  - the_api: sourceAFRICA API
   - timeline_for_doc: !binary |
       JXPnmoTmmYLplpPou7g=
 
