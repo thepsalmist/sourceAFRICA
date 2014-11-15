@@ -3,7 +3,7 @@ defaults: &defaults
   cloud_crowd_server:   http://dev.sourceafrica.net:8080
   server_root:          dev.sourceafrica.net
   aws_zone:             eu-west-1
-  preconfigured_ami_id: ami-508c7538
+  preconfigured_ami_id: <%= secrets['ami'] %>
   asset_root:           "dev.sourceafrica.net"
 
 development:
@@ -18,7 +18,7 @@ staging:
 production:
   <<: *defaults
   cloud_crowd_server: <%= secrets['db_host'] %>:8080
-  server_root:        dev.sourceafrica.net
+  server_root:        sourceafrica.net
   asset_root:         "s3.sourceafrica.net.s3-website-eu-west-1.amazonaws.com"
   db_volume_id:       vol-d4c305bd
 
