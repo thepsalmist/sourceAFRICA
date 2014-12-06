@@ -8,8 +8,8 @@ namespace :deploy do
 
   desc "Deploy and migrate the database, then restart CloudCrowd"
   task :full do
-    remote ["app:update", "app:jammit", "db:migrate", "app:clearcache:docs", "app:clearcache:search", "app:restart", "app:warm"], app_servers
-    remote ["app:update", "crowd:server:restart"], central_servers
+    remote ["app:update", "db:migrate", "crowd:server:restart"], central_servers
+    remote ["app:update", "app:jammit", "app:clearcache:docs", "app:clearcache:search", "app:restart", "app:warm"], app_servers
     remote ["app:restart_solr"], search_servers
     remote ["app:update", "crowd:node:restart"], worker_servers
   end
@@ -30,7 +30,7 @@ namespace :deploy do
       raise ArgumentError, "Rails.env was (#{Rails.env}) and should be one of #{DEPLOYABLE_ENV.inspect}
 (e.g. `rake production deploy:[taskname]`)"
     end
-    upload_filetree( 'public/viewer/**/*' )
+    upload_filetree( 'public/viewer/*', '', /^public\//)
     upload_template( 'app/views/documents/loader.js.erb', 'viewer/loader.js' )
   end
 
