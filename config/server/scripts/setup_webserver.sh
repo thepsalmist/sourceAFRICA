@@ -31,7 +31,7 @@ cd /home/$USERNAME
 
 test -e pixel-ping || su -c "git clone git://github.com/documentcloud/pixel-ping.git pixel-ping" $USERNAME
 
-cd /home/$USERNAME/documentcloud
+cd /home/$USERNAME/sourceAFRICA
 
 test -e /etc/nginx/nginx.conf && mv /etc/nginx/nginx.conf /etc/nginx/nginx.default.conf
 test -e /etc/nginx/sites-enabled/default && rm /etc/nginx/sites-enabled/default
