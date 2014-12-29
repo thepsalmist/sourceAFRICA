@@ -19,7 +19,7 @@ gpg --armor --export 561F9B9CAC40B2F7 | sudo apt-key add -
 
 apt-get update
 
-apt-get install nginx-extras passenger -y
+apt-get install nginx-extras=1.6.2-1ubuntu1.1 passenger -y
 # crash-watch gdb libc6-dbg libev4 liblua5.1-0 libperl5.14 nginx-common nginx-extras passenger passenger-dev passenger-doc ruby-daemon-controller ruby-rack
 
 apt-get install nodejs nodejs-dev npm -y
