@@ -11,6 +11,8 @@ module DC
       IMAGE_EXT       = /\.(gif|png|jpe?g)\Z/
 
       DEFAULT_ACCESS  = DC::Access::PUBLIC
+      
+      AWS_ZONE        = DC::CONFIG['aws_zone']
 
       # 60 seconds for persistent connections.
       S3_PARAMS       = {:connection_lifetime => 60}
@@ -20,7 +22,7 @@ module DC
 
       module ClassMethods
         def asset_root
-          "https://#{BUCKET_NAME}.s3.amazonaws.com"
+          "https://s3-#{AWS_ZONE}.amazonaws.com/#{BUCKET_NAME}"
         end
         def web_root
           asset_root
