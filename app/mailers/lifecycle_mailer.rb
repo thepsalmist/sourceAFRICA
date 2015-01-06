@@ -5,6 +5,7 @@ class LifecycleMailer < ActionMailer::Base
   SUPPORT   = 'support@codeforafrica.org'
   NO_REPLY  = 'no-reply@codeforafrica.org'
   INFO      = 'info@codeforafrica.org'
+
   default from: SUPPORT
 
   # Mail instructions for a new account, with a secure link to activate,
@@ -110,9 +111,11 @@ class LifecycleMailer < ActionMailer::Base
   def account_and_document_csvs
     date = Date.today.strftime "%Y-%m-%d"
 
+    accounts = ""
+    DC::Statistics.accounts_csv( CSV.new(accounts) )
     attachments["accounts-#{date}.csv"] = {
       mime_type: 'text/csv',
-      content: DC::Statistics.accounts_csv
+      content: accounts
     }
 
     attachments["top-documents-#{date}.csv"] = {
