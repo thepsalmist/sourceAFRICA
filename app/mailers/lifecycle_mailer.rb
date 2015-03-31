@@ -2,9 +2,10 @@
 class LifecycleMailer < ActionMailer::Base
   include ActionView::Helpers::TextHelper # pluralize and friends
   
-  SUPPORT   = 'support@codeforafrica.org'
-  NO_REPLY  = 'no-reply@codeforafrica.org'
-  INFO      = 'info@codeforafrica.org'
+  SUPPORT    = 'support@codeforafrica.org'
+  EXCEPTIONS = 'exceptions@codeforafrica.org'
+  NO_REPLY   = 'no-reply@codeforafrica.org'
+  INFO       = 'info@codeforafrica.org'
 
   default from: SUPPORT
 
@@ -91,7 +92,7 @@ class LifecycleMailer < ActionMailer::Base
     mail({
         :subject  => "sourceAFRICA exception (#{Rails.env}:#{`hostname`.chomp}): #{error.class.name}",
         :from     => NO_REPLY,
-        :to       => SUPPORT
+        :to       => EXCEPTIONS
       })
   end
 
