@@ -179,10 +179,12 @@ class ApiController < ApplicationController
     resource_params = Rails.application.routes.recognize_path(url.path) rescue nil
     return not_found unless url.host == DC::CONFIG['server_root'] and resource_embeddable?(resource_params)
 
-    # create a seralizer mock/class/struct for temporary use
-    resource_seralizer_klass = Struct.new(:id, :url, :type)
-    resource_url = url_for(resource_params.merge(:format => 'js'))
-    resource = resource_seralizer_klass.new(resource_params[:id], resource_url, :document)
+    # create a serializer mock/class/struct for temporary use
+    resource_serializer_klass = Struct.new(:id, :js_url, :type)
+    # The JS URL should match the protocol used for the request, but
+    # the "canonical" resource URL can be our preferred one (HTTPS).
+    resource_js_url = url_for(resource_params.merge(:format => 'js'))
+    resource = resource_serializer_klass.new(resource_params[:id], resource_js_url, :document)
     
     config = pick(params, *DC::Embed.embed_klass(resource.type).config_keys)
     embed = DC::Embed.embed_for(resource, config, {:strategy => :oembed})
