@@ -13,7 +13,7 @@ development:
 staging:
   <<: *defaults
   cloud_crowd_server: <%= secrets['db_host'] %>:8080
-  server_root:        staging.documentcloud.org
+  server_root:        staging.sourceafrica.net
   asset_root:         "s3.amazonaws.com/dcloud_staging"
 
 production:

@@ -39,5 +39,5 @@ Make sure you understand document [privacy][] and get started [uploading][], [an
 Questions? Don't hesitate to [contact us][]. And as you go, feel free to [request features and report bugs][].
 
 
-[request features and report bugs]: http://documentcloud.uservoice.com
+[request features and report bugs]: https://github.com/CodeForAfrica/sourceAFRICA/issues
 [contact us]: javascript:dc.ui.Dialog.contact()

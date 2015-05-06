@@ -167,9 +167,9 @@ DC::Application.routes.draw do
   get '/who-we-are' => 'redirect#index', :as => :who_we_are, :url => '/about'
   get '/partner.php' => 'redirect#index', :as => :partner, :url => '/contributors'
   get '/clips.php' => 'redirect#index', :as => :clips, :url => '/news'
-  get '/blog/feed' => 'redirect#index', :as => :feed, :url => 'http://blog.documentcloud.org/feed'
-  get '/feed' => 'redirect#index', :as => :root_feed, :url => 'http://blog.documentcloud.org/feed'
-  get '/blog/*parts' => 'redirect#index', :as => :blog, :url => 'http://blog.documentcloud.org/'
+  get '/blog/feed' => 'redirect#index', :as => :feed, :url => 'http://investigativecenters.org/feed'
+  get '/feed' => 'redirect#index', :as => :root_feed, :url => 'http://investigativecenters.org/feed'
+  get '/blog/*parts' => 'redirect#index', :as => :blog, :url => 'http://investigativecenters.org/'
 
   get '/admin' => 'admin#index'
   

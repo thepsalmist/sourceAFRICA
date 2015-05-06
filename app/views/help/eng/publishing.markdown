@@ -136,34 +136,34 @@ Click on any document to open it. If you've previously published the document on
 <a name="wordpress"></a>
 # <span id="docset">WordPress Shortcodes</span>
 
-Users who publish via WordPress can install a plugin that lets you embed DocumentCloud resources using [shortcodes](https://codex.wordpress.org/Shortcode_API).
+Users who publish via WordPress can install a plugin that lets you embed sourceAFRICA resources using [shortcodes](https://codex.wordpress.org/Shortcode_API).
 
 Download the DocumentCloud plugin at its [WordPress plugin page](https://wordpress.org/plugins/documentcloud/). Install and activate it according to the directions.
 
 Once activated, you can embed resources with a simple shortcode. You also can pass additional parameters to control the size and attributes of the embed. For example, if you want to embed a document at 800px wide, pre-scrolled to page 3:
 
-    [documentcloud url="https://www.documentcloud.org/documents/282753-lefler-thesis.html" width="800" default_page="3"]
+    [documentcloud url="https://sourceafrica.net/documents/282753-lefler-thesis.html" width="800" default_page="3"]
 
 If you don't indicate a width (or manually disable responsive widths with `responsive="false"`), then the document will automatically narrow and widen to fill available width.
 
 For a note, use any note-specific URL:
 
-    [documentcloud url="https://www.documentcloud.org/documents/282753-lefler-thesis.html#document/p1/a53674"]
+    [documentcloud url="https://sourceafrica.net/documents/282753-lefler-thesis.html#document/p1/a53674"]
 
 A list of all the parameters you can use with the shortcode is available on the [plugin page](https://wordpress.org/plugins/documentcloud/).
 
 <a name="oembed"></a>
 # <span id="docset">oEmbed Service</span>
 
-oEmbed is a Web standard for providing embedded content on a site via a request to the URL of the resource. If a content management system supports oEmbed, you can simply paste in the URL to a DocumentCloud resource, and the CMS will fetch it via our [oEmbed API][] and embed it. Check with your organization's systems administrator about whether your CMS supports oEmbed.
+oEmbed is a Web standard for providing embedded content on a site via a request to the URL of the resource. If a content management system supports oEmbed, you can simply paste in the URL to a sourceAFRICA resource, and the CMS will fetch it via our [oEmbed API][] and embed it. Check with your organization's systems administrator about whether your CMS supports oEmbed.
 
 ### Example document URL for oEmbed
 
-    https://www.documentcloud.org/documents/1234-document-name.html
+    https://sourceafrica.net/documents/1234-document-name.html
 
 ### Example note URL for oEmbed
 
-    https://www.documentcloud.org/documents/1234-document-name.html#document/p2/a208505
+    https://sourceafrica.net/documents/1234-document-name.html#document/p2/a208505
 
 # Questions?
 
@@ -180,5 +180,5 @@ Still have questions about publishing and embedding? Don't hesitate to [contact 
 [ProPublica]: http://www.propublica.org/documents/item/magnetars-responses-to-our-questions
 [this document from the Commercial Appeal]: http://www.commercialappeal.com/data/documents/bass-pro-lease/
 [this ballot from WNYC]: http://www.wnyc.org/story/93440-new-nyc-ballot-could-cause-confusion/
-[oEmbed API]: https://www.documentcloud.org/help/api#oembed
+[oEmbed API]: https://sourceafrica.net/help/api#oembed
 [contact us]: javascript:dc.ui.Dialog.contact()

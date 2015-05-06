@@ -127,8 +127,8 @@
   - collaboration: "合作"
   - collaborators: "合作者"
   - confirm_remove_all_data: "你確定要從％s刪除的所有資料？"
-  - contact_documentcloud: "聯繫DocumentCloud"
-  - contact_reviewer: "如果您需要任何幫助，聯繫在％s的％s，或訪問％s要更多有關DocumentCloud的信息。"
+  - contact_documentcloud: "聯繫sourceAFRICA"
+  - contact_reviewer: "如果您需要任何幫助，聯繫在％s的％s，或訪問％s要更多有關sourceAFRICA的信息。"
   - contact_us: "聯絡我們"
   - contributed_by: "供稿人"
   - contributor: "供稿人"
@@ -161,7 +161,7 @@
   - document_public_on: "這份文件將公開於％s"
   - document_publish_embed_test: "如果你想在出版前測試嵌入，請確保你使用安全的HTTPS URLS來編輯嵌入代碼，然後於使文檔設為公共查閱，再切換回常用的HTTP。"
   - document_publish_private_help: "這份文件是私人的。在你把它公開之前，你的讀者將不會看到。更改％s瀏覽級別％或％s出版日期"
-  - document_publish_public_help: "這個文件是公開的。它是目前可供\\用戶於DocumentCloud目錄搜索，你把它嵌入您的網站上後它將會供公眾瀏覽可見。更改％s訪問級別％s。"
+  - document_publish_public_help: "這個文件是公開的。它是目前可供\\用戶於sourceAFRICA目錄搜索，你把它嵌入您的網站上後它將會供公眾瀏覽可見。更改％s訪問級別％s。"
   - document_tools: "文件工具"
   - document_viewer_size: "文件瀏覽器的大小"
   - documents: "文件"
@@ -199,7 +199,7 @@
   - edit_x: "修改 ％s"
   - editing_notes_sections: "修改筆記及章節"
   - email: "電子郵件地址"
-  - email_for_assistance: "如果您需要幫助，請電郵至support@documentcloud.org。"
+  - email_for_assistance: "如果您需要幫助，請電郵至support@codeforafrica.org。"
   - email_when_complete: "％s文件％s處理完畢後發送郵件給我。"
   - embed_a_note: "嵌入筆記"
   - embed_document: "嵌入這文件"
@@ -232,11 +232,11 @@
   - enter_url_that_references: "輸入引用此文章的網址"
   - entities_explained: "上面列出的實體，附合你的搜尋。請選擇一個實體來過濾搜索結果。"
   - entities_unavailable: "實體暫時不可用。"
-  - explain_disable_account: "%1$s 將不會能夠登錄到DocumentCloud. %1$s 提供的公共文件和註釋可保持可用。%2$s
+  - explain_disable_account: "%1$s 將不會能夠登錄到sourceAFRICA. %1$s 提供的公共文件和註釋可保持可用。%2$s
       聯絡我們 %3$s 徹底清除%1$s's的帳戶。"
   - export: |
       輸出
-  - export_to_overview_explain: "你將是輸出到概述模式。你必須創建一個概述模式帳戶，你必須提供概述模式，您DocumentCloud的用戶名和密碼。"
+  - export_to_overview_explain: "你將是輸出到概述模式。你必須創建一個概述模式帳戶，你必須提供概述模式，您sourceAFRICA的用戶名和密碼。"
   - featured_examples_documents_list: "你可以從％s精選報告％s中找到很多嵌入式文件的例子。"
   - featured_reporting_list: "你可以於名單上的％s 特選報告％找到嵌入式搜索的例子。"
   - finish: "完成"
@@ -351,7 +351,7 @@
   - please_enter_valid_email: "請輸入正確電子郵件地址。"
   - popular_documents: "熱門文件"
   - preview_email: "預覽電子郵件消息"
-  - preview_search_embed_help: "在繼續之前，請花點時間％s查閱文檔％s。發布了的文檔可從它們最初被發表的鏈結打開，而其他公共文件可於DocumentCloud打開。"
+  - preview_search_embed_help: "在繼續之前，請花點時間％s查閱文檔％s。發布了的文檔可從它們最初被發表的鏈結打開，而其他公共文件可於sourceAFRICA打開。"
   - preview_viewer: "在繼續之前，請花點時間％  看看 ％s的文件查看器。"
   - print_notes: "打印筆記"
   - print_notes_missing_error: "％s不包含任何可打印文件。"
@@ -360,7 +360,7 @@
   - private_access: "私人查閱"
   - private_access_help: "只有許可者（通過合作）才能觀看文件。"
   - private_documents_visible_instructions:
-    - "這是私人文件。你要把它設為公共，才可顯於 您的網站或是在DocumentCloud的搜索目錄。你可以選擇把它於日後設成公共，或者您也可以％2 $ 現在就更改％3
+    - "這是私人文件。你要把它設為公共，才可顯於 您的網站或是在sourceAFRICA的搜索目錄。你可以選擇把它於日後設成公共，或者您也可以％2 $ 現在就更改％3
       $ s。"
   - private_note: "私人筆記"
   - private_note_visible: "這私人筆記只有你能查看。"
@@ -431,7 +431,7 @@
   - reviewer_email_instructions:
     - "電子郵件傳送說明給%2$s"
     - "電子郵件傳送說明給%d 評審員"
-  - reviewer_email_message: DocumentCloud可電子郵件指令到％s，你可以添加個人信息。
+  - reviewer_email_message: sourceAFRICA可電子郵件指令到％s，你可以添加個人信息。
   - reviewer_enter_email: "輸入第一個邀請的評審員電子郵件地址："
   - reviewer_name: "請提供評審員名字。"
   - reviewer_remove_error: "刪除評審員出現問題。"
@@ -494,7 +494,7 @@
   - text_reprocess_help: "重新處理文件，嘗試我們改進了的文字提取工具。再加工前，選擇“ Force OCR（光學字符識別） 來忽略任何嵌入式文本信息和使用TESSERACT
       。該文件將於重建時關閉。您確定要繼續嗎？"
   - text_tools: "文字工具"
-  - the_api: DocumentCloud API
+  - the_api: sourceAFRICA API
   - timeline_for_doc: "%s的時間軸"
   - timeline_for_x_docs: "%d 文件的時間軸"
   - timeline_max_documents: "您只能在同一時間軸查看十份文件的時間。"

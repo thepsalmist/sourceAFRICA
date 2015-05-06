@@ -21,7 +21,7 @@ module DC
 
     def initialize(options = {})
       @user     = options[:user]     || "ubuntu"
-      @key_path = options[:key_path] || "secrets/keys/documentcloud.pem"
+      @key_path = options[:key_path] || "secrets/keys/sourceafrica.pem"
     end
 
     def ec2
@@ -114,7 +114,7 @@ module DC
         'StrictHostKeyChecking' => 'no',
         'UserKnownHostsFile' => '/dev/null',
         'User' => 'ubuntu',
-        'IdentityFile' => "#{Rails.root}/secrets/keys/documentcloud.pem"
+        'IdentityFile' => "#{Rails.root}/secrets/keys/sourceafrica.pem"
       }
 
       File.chmod(0600, ssh_config['IdentityFile'])

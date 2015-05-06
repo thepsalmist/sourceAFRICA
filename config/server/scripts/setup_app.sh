@@ -9,8 +9,8 @@ USERNAME=ubuntu
 RAILS_ENVIRONMENT=production
 
 chown -R $USERNAME .
-test -e documentcloud || sudo -u $USERNAME git clone git@github.com:documentcloud/documentcloud.git documentcloud
-cd /home/$USERNAME/documentcloud
+test -e documentcloud || sudo -u $USERNAME git clone git@github.com:CodeForAfrica/sourceAFRICA.git sourceAFRICA
+cd /home/$USERNAME/sourceAFRICA
 
 sudo -u $USERNAME gem install bundler
 sudo -u $USERNAME ./bin/bundle install

@@ -198,7 +198,7 @@
       for dine læsere, før du gør det offentligt. Ændr på %sadgangs-rettigheder%s
       nu eller %s ret udgivelsesdato
   - document_publish_public_help: Dette dokument er offentligt. Det er i øjeblikket
-      tilgængeligt for brugere, der søger i DocumentClouds katalog og vil være synligt
+      tilgængeligt for brugere, der søger i sourceAFRICAs katalog og vil være synligt
       for offentligheden , når du indlejrer det på din hjemmeside. Ændr på %adgangs-rettigheder%s
       .
   - document_tools: Dokument-værktøjer
@@ -293,7 +293,7 @@
   - export: Eksport
   - export_to_overview_explain: Du er ved at eksportere til Oversigt. Du skal oprette
       en konto i sourceAFRICA, og du skal oplyse Oversigt om dit brugernavn og adgangskode
-      til DocumentCloud.
+      til sourceAFRICA.
   - featured_examples_documents_list: Du kan finde masser af eksempler på indlejrede
       dokumenter på vores liste over %s eksempler %s .
   - featured_reporting_list: Du kan finde eksempler på indlejrede søgninger på vores
@@ -420,7 +420,7 @@
   - pages_are_being_removed: Siderne bliver fjernet. Luk venligst dette dokument.
   - paragraph_description_of_document: Beskrivelse af dette dokument på sætningsniveau
   - password_no_blank: Dit password kan ikke være tomt
-  - password_reset: 'DocumentCloud nulstilling af adgangskode '
+  - password_reset: 'sourceAFRICA nulstilling af adgangskode '
   - password_updated: Password opdateret
   - pending: Afventer
   - person: Mennesker
@@ -445,10 +445,10 @@
       adgang.
   - private_documents_visible_instructions:
     - Dette dokument er privat. Du skal gøre det offentligt, før det vil være synligt
-      på din hjemmeside eller i søgninger i DocumentClouds katalog. Du kan vælge at
+      på din hjemmeside eller i søgninger i sourceAFRICAs katalog. Du kan vælge at
       gøre det offentligt på et senere tidspunkt , eller du kan %2$sændre det nu%3$s.
     - Disse dokumenter er private. Du skal gøre dem offentlige, før de vil være synligt
-      på din hjemmeside eller i søgninger i DocumentClouds katalog. Du kan vælge at
+      på din hjemmeside eller i søgninger i sourceAFRICAs katalog. Du kan vælge at
       gøre dem offentlige på et senere tidspunkt , eller du kan %2$sændre det nu%3$s.
   - private_note: Privat note
   - private_note_visible: Denne private note er kun synlig for dig.
@@ -532,8 +532,8 @@
   - resend_welcome_email: Gensend velkomst email
   - restricted: 'begrænset '
   - review_x_documents:
-    - 'Review "%2$s" på DocumentCloud '
-    - 'Anmeldelse% d dokumenter på DocumentCloud '
+    - 'Review "%2$s" på sourceAFRICA '
+    - 'Anmeldelse% d dokumenter på sourceAFRICA '
   - reviewer: Bedømt af
   - reviewer_add_permission_denied: Du har ikke tilladelse til at tilføje bedømmere.
   - reviewer_email_instructions:
@@ -640,7 +640,7 @@
   - view_pages: Vis sider
   - view_timeline: Se tidslinje
   - welcome_message_sent_to: En velkomst besked er sendt til %s.
-  - welcome_to_document_cloud: 'Velkommen til DocumentCloud '
+  - welcome_to_document_cloud: 'Velkommen til sourceAFRICA '
   - width: Bredde
   - workspace: Workspace
   - x_collaborators: *3

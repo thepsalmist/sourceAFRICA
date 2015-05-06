@@ -100,4 +100,4 @@ Questions? Don't hesitate to [contact us][]. And as you go, feel free to [reques
 [country: Iran]: /public/search/country%3A%20Iran
 [OpenCalais]: http://www.opencalais.com/
 [contact us]: /contact
-[request features and report bugs]: http://documentcloud.uservoice.com
+[request features and report bugs]: https://github.com/CodeForAfrica/sourceAFRICA/issues
