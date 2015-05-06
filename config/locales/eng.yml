@@ -101,6 +101,7 @@
   - add_public_note: Add a Public Note
   - add_public_note_warn: Public notes are visible to everyone who views this document.
   - add_reviewer: Add Reviewer
+  - add_wp_shortcode_for_viewer: Add this shortcode to your WordPress content.
   - added_project: added to this project
   - added_to_x_documents:
     - Added a document to %s
@@ -290,7 +291,9 @@
   - export_to_overview_explain: You are about to export to Overview. You must create
       an Overview account, and you must provide Overview with your sourceAFRICA username
       and password.
-  - featured_examples_list: You can find plenty of examples of embedded documents
+  - featured_examples_documents_list: You can find plenty of examples of embedded
+      documents on our list of %sfeatured reporting%s.
+  - featured_examples_notes_list: You can find plenty of examples of embedded notes
       on our list of %sfeatured reporting%s.
   - featured_reporting_list: You can find examples of embedded searches on our list
       of %sfeatured reporting%s.
@@ -650,6 +653,7 @@
   - welcome_to_document_cloud: Welcome to sourceAFRICA
   - width: Width
   - workspace: Workspace
+  - wp_shortcode_plugin_docs_link: "%sPlugin required%s."
   - x_accounts:
     - "%d account"
     - "%d accounts"
