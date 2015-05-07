@@ -15,9 +15,9 @@ cd /home/$USERNAME/sourceAFRICA
 sudo -u $USERNAME gem install bundler
 sudo -u $USERNAME ./bin/bundle install
 
-# Don't forget to download your secrets file into documentcloud/secrets!
+# Don't forget to download your secrets file into sourceAFRICA/secrets!
 
 #./bin/rails runner -e production 'puts "You already have #{Document.count} documents"'
 
 # if you would like to use git hooks to automatically bundle the app's gem dependencies:
-# sudo ln -s /home/$USERNAME/documentcloud/config/server/files/git-post-merge.sh /home/$USERNAME/documentcloud/.git/hooks/post-merge
+# sudo ln -s /home/$USERNAME/sourceAFRICA/config/server/files/git-post-merge.sh /home/$USERNAME/sourceAFRICA/.git/hooks/post-merge

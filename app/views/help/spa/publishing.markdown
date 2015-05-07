@@ -136,17 +136,17 @@ Haga clic en cualquier documento para abrirlo. Si ha publicado el documento en s
 
 Los usuarios que publican a través de WordPress pueden instalar un plugin que permite incorporar recursos sourceAFRICA utilizando [shortcodes](https://codex.wordpress.org/Shortcode_API).
 
-Descargue el plugin DocumentCloud en su [página de plugin para WordPress](https://wordpress.org/plugins/documentcloud/). Instalar y activar de acuerdo a las instrucciones.
+Descargue el plugin sourceAFRICA en su [página de plugin para WordPress](https://wordpress.org/plugins/sourceafrica/). Instalar y activar de acuerdo a las instrucciones.
 
 Una vez activado, puede incrustar recursos con un simple shortcode. También puede pasar parámetros adicionales para controlar el tamaño y los atributos del embed. Por ejemplo, si desea incrustar un documento a 800px de ancho, pre-desplazado a la página 3:
 
-    [documentcloud url="https://sourceafrica.net/documents/282753-lefler-thesis.html" width="800" default_page="3"]
+    [sourceafrica url="https://sourceafrica.net/documents/282753-lefler-thesis.html" width="800" default_page="3"]
 
 Para una nota, utilice cualquier URL-nota específica:
 
-    [documentcloud url="https://sourceafrica.net/documents/282753-lefler-thesis.html#document/p1/a53674"]
+    [sourceafrica url="https://sourceafrica.net/documents/282753-lefler-thesis.html#document/p1/a53674"]
 
-Una lista de todos los parámetros que puede utilizar con el código corto está disponible en [la página del plugin](https://wordpress.org/plugins/documentcloud/).
+Una lista de todos los parámetros que puede utilizar con el código corto está disponible en [la página del plugin](https://wordpress.org/plugins/sourceafrica/).
 
 <a name="oembed"></a>
 # <span id="docset">oEmbed Service</span>

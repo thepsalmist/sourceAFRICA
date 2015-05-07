@@ -138,19 +138,19 @@ Click on any document to open it. If you've previously published the document on
 
 Users who publish via WordPress can install a plugin that lets you embed sourceAFRICA resources using [shortcodes](https://codex.wordpress.org/Shortcode_API).
 
-Download the DocumentCloud plugin at its [WordPress plugin page](https://wordpress.org/plugins/documentcloud/). Install and activate it according to the directions.
+Download the sourceAFRICA plugin at its [WordPress plugin page](https://wordpress.org/plugins/sourceafrica/). Install and activate it according to the directions.
 
 Once activated, you can embed resources with a simple shortcode. You also can pass additional parameters to control the size and attributes of the embed. For example, if you want to embed a document at 800px wide, pre-scrolled to page 3:
 
-    [documentcloud url="https://sourceafrica.net/documents/282753-lefler-thesis.html" width="800" default_page="3"]
+    [sourceafrica url="https://sourceafrica.net/documents/282753-lefler-thesis.html" width="800" default_page="3"]
 
 If you don't indicate a width (or manually disable responsive widths with `responsive="false"`), then the document will automatically narrow and widen to fill available width.
 
 For a note, use any note-specific URL:
 
-    [documentcloud url="https://sourceafrica.net/documents/282753-lefler-thesis.html#document/p1/a53674"]
+    [sourceafrica url="https://sourceafrica.net/documents/282753-lefler-thesis.html#document/p1/a53674"]
 
-A list of all the parameters you can use with the shortcode is available on the [plugin page](https://wordpress.org/plugins/documentcloud/).
+A list of all the parameters you can use with the shortcode is available on the [plugin page](https://wordpress.org/plugins/sourceafrica/).
 
 <a name="oembed"></a>
 # <span id="docset">oEmbed Service</span>

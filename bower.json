@@ -5,7 +5,7 @@
   "authors": [
     "Code for Africa <support@codeforafrica.org",
     "DocumentCloud <support@documentcloud.org>",
-    "David Lemayian <david@lemayian.com>"
+    "David Lemayian <david@codeforafrica.org>"
   ],
   "description": "Document transparency tools for journalists",
   "dependencies":{
