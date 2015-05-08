@@ -12,7 +12,7 @@ module DC
 
       DEFAULT_ACCESS  = DC::Access::PUBLIC
       
-      AWS_ZONE        = DC::CONFIG['aws_zone']
+      AWS_REGION        = DC::CONFIG['aws_region']
 
       # 60 seconds for persistent connections.
       S3_PARAMS       = {:connection_lifetime => 60}
@@ -22,7 +22,7 @@ module DC
 
       module ClassMethods
         def asset_root
-          "https://s3-#{AWS_ZONE}.amazonaws.com/#{BUCKET_NAME}"
+          "https://s3-#{AWS_REGION}.amazonaws.com/#{BUCKET_NAME}"
         end
         def web_root
           asset_root
