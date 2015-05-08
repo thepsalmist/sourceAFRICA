@@ -7,5 +7,5 @@ AWS.config(
   :http_idle_timeout => 60,
   :http_open_timeout => 30,
   :http_read_timeout => 300,
-  :region            => DC::CONFIG['aws_zone']
+  :region            => DC::CONFIG['aws_region']
 )
