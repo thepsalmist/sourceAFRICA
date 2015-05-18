@@ -14,6 +14,8 @@ module DC
       
       AWS_REGION        = DC::CONFIG['aws_region']
 
+      AWS_REGION      = DC::CONFIG['aws_region']
+
       # 60 seconds for persistent connections.
       S3_PARAMS       = {:connection_lifetime => 60}
 
@@ -22,7 +24,11 @@ module DC
 
       module ClassMethods
         def asset_root
-          "https://s3-#{AWS_REGION}.amazonaws.com/#{BUCKET_NAME}"
+          if AWS_REGION == 'us-east-1'
+            "https://s3.amazonaws.com/#{BUCKET_NAME}"
+          else
+            "https://s3-#{AWS_REGION}.amazonaws.com/#{BUCKET_NAME}"
+          end
         end
         def web_root
           asset_root
