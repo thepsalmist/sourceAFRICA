@@ -1,9 +1,10 @@
+```
                                  _    _____ ____  ___ ____    _    
  ___  ___  _   _ _ __ ___ ___   / \  |  ___|  _ \|_ _/ ___|  / \   
 / __|/ _ \| | | | '__/ __/ _ \ / _ \ | |_  | |_) || | |     / _ \  
 \__ \ (_) | |_| | | | (_|  __// ___ \|  _| |  _ < | | |___ / ___ \ 
 |___/\___/ \__,_|_|  \___\___/_/   \_\_|   |_| \_\___\____/_/   \_\
-
+```
 
 sourceAFRICA is a catalog of primary source documents and a tool for 
 annotating, organizing and publishing them on the web. Documents are 
