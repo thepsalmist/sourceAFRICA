@@ -16,7 +16,7 @@ What do we mean by *actionable documents*? Documents that the public need to hel
 
 ### Contributing
 
-If you're interested in contributing patches to sourceAFRICA, installation instructions to get up and running are available in the `INSTALL` file.
+If you're interested in contributing patches to [sourceAFRICA](https://sourceafrica.net/), installation instructions to get up and running are available in the [`INSTALL`](./INSTALL.md) file.
 
 ---
 
@@ -28,7 +28,7 @@ If you find a security issue while browsing the source code, please email [suppo
 
 ### License
 
-Code contributed to this project is provided under the GPL v2 license.
+Code contributed to this project is provided under the GPL v3 license.
 
 The GPL (V2 or V3) is a copyleft license that requires anyone who distributes your code or a derivative work to make the source available under the same terms. V3 is similar to V2, but further restricts use in hardware that forbids software alterations.
 
