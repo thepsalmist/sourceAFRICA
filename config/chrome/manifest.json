@@ -10,10 +10,10 @@
   "permissions": [],
   "app": {
     "urls": [
-      "http://www.sourceafrica.net/public"
+      "https://sourceafrica.net/public"
     ],
     "launch": {
-      "web_url": "http://www.sourceafrica.net/public"
+      "web_url": "https://sourceafrica.net/public"
     }
   }
 }

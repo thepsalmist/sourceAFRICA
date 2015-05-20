@@ -7,7 +7,7 @@
 
 <POLICY
     name="PrivacyPolicy"
-    discuri="http://www.sourceafrica.net/privacy"
+    discuri="https://sourceafrica.net/privacy"
     xml:lang="en">
     <!-- Description of the entity making this policy statement. -->
     <ENTITY>
