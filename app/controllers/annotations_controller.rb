@@ -21,6 +21,9 @@ class AnnotationsController < ApplicationController
         cache_page js if current_annotation.cacheable? && PUBLIC_LEVELS.include?(current_document.access)
         render :js => js
       end
+      format.html do
+        render
+      end
     end
   end
 
