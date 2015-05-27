@@ -12,8 +12,6 @@ module DC
 
       DEFAULT_ACCESS  = DC::Access::PUBLIC
       
-      AWS_REGION        = DC::CONFIG['aws_region']
-
       AWS_REGION      = DC::CONFIG['aws_region']
 
       # 60 seconds for persistent connections.
