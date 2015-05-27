@@ -144,11 +144,11 @@ module DC
       end
       
       def copy_text(source, destination, access)
-        bucket.objects[source.full_text_path].copy_to(destination.full_text_path, :acl => ACCESS_TO_ACL[access])
+        options = {:acl => ACCESS_TO_ACL[access], :content_type => content_type(destination.full_text_path)}
+        bucket.objects[source.full_text_path].copy_to(destination.full_text_path, options)
         source.pages.each do |page|
           num = page.page_number
           source_object = bucket.objects[source.page_text_path(num)]
-          options = {:acl => ACCESS_TO_ACL[access], :content_type => content_type(source.page_text_path(num))}
           source_object.copy_to(destination.page_text_path(num), options)
         end
         true
@@ -214,7 +214,13 @@ module DC
       end
 
       def content_type(s3_path)
-        Mime::Type.lookup_by_extension(File.extname(s3_path).remove(/^\./)).to_s
+        ext = File.extname(s3_path).remove(/^\./)
+        case ext
+          when 'txt'
+            'text/plain; charset=utf-8'
+          else
+            Mime::Type.lookup_by_extension(ext).to_s
+        end
       end
 
       # Saves a local file to a location on S3, and returns the public URL.
