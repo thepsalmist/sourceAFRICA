@@ -21,7 +21,7 @@ production:
   <<: *defaults
   cloud_crowd_server: <%= secrets['db_host'] %>:8080
   server_root:        sourceafrica.net
-  asset_root:         "s3.sourceafrica.net.s3-website-eu-west-1.amazonaws.com"
+  asset_root:         "s3-eu-west-1.amazonaws.com/s3.sourceafrica.net"
   db_volume_id:       vol-d4c305bd
 
 test:
