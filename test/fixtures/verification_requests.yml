@@ -5,13 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 dc: {
-  "requester_email"      => "ted@documentcloud.org",
-  "requester_first_name" => "Ted",
-  "requester_last_name"  => "Han",
-  "organization_name"    => "DocumentCloud",
-  "approver_email"       => "mark@documentcloud.org",
-  "approver_first_name"  => "Mark",
-  "approver_last_name"   => "Horvit",
+  "requester_email"      => "david@codeforafrica.org",
+  "requester_first_name" => "David",
+  "requester_last_name"  => "Lemayian",
+  "organization_name"    => "Code for Africa",
+  "approver_email"       => "robin@codeforafrica.org",
+  "approver_first_name"  => "Robin",
+  "approver_last_name"   => "Kiplangat",
   "display_language"     => "eng",
   "document_language"    => "eng",
   "status"               => 1,
