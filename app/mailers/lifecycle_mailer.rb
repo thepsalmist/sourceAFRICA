@@ -76,7 +76,7 @@ class LifecycleMailer < ActionMailer::Base
         :subject  => "New sourceAFRICA account request from #{verification_request.requester_full_name} (#{verification_request.organization_name}) in #{Rails.env}",
         :from     => NO_REPLY,
         :reply_to => verification_request.requester_email,
-        :to       => SUPPORT
+        :to       => INFO
       })
   end
 
