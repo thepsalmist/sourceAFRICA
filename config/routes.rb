@@ -2,7 +2,7 @@ DC::Application.routes.draw do
 
 
   # homepage
-  get '/' => 'public#index', :as => :public_search  #'workspace#index'
+  get '/' => 'workspace#index'
 
   # Internal Search API.
   get '/search/documents.json' => 'search#documents'
