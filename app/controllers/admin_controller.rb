@@ -91,6 +91,10 @@ class AdminController < ApplicationController
     end
   end
 
+  def charge
+    render :layout => 'admin_empty'
+  end
+
   # Attempt a new signup for DocumentCloud -- includes both the organization and
   # its first account. If everything's kosher, the journalist is logged in.
   # NB: This needs to stay access controlled by the bouncer throughout the beta.
@@ -171,9 +175,8 @@ class AdminController < ApplicationController
         @response = Document.upload_statistics(:organization, org.id)
         json_response
       end
-      format.any do
-        render
-      end
+      format.html{ render }
+      format.any{ redirect_to :format => :html, :params => pick(params, :id, :slug) }
     end
   end
   
@@ -190,9 +193,8 @@ class AdminController < ApplicationController
         @response = Document.upload_statistics(:account, account.id)
         json_response
       end
-      format.any do
-        render
-      end
+      format.html{ render }
+      format.any{ redirect_to :format => :html, :params => pick(params, :id, :slug) }
     end
   end
 
