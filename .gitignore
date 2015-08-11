@@ -30,4 +30,4 @@ public/javascripts/vendor/*/
 .vagrant
 .tm_properties
 
-.idea
+Vagrantfile
