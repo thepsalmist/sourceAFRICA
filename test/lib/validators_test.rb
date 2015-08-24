@@ -31,8 +31,8 @@ class ValidatorsTest < ActiveSupport::TestCase
   
   def test_validator_for_external_url_requests
     good_urls = %w[
-      http://www.documentcloud.org/home
-      https://www.documentcloud.org/home
+      http://sourceafrica.net/home
+      https://sourceafrica.net/home
     ]
     bad_urls = %w[
       http://127.0.0.1/~ubuntu/.ssh/id_dsa
