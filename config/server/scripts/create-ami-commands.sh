@@ -25,7 +25,7 @@ source /etc/profile.d/chruby.sh
 gem install bundler
 ./scripts/setup_app.sh
 
-pushd documentcloud
+pushd sourceAFRICA
 git clone git@github.com:CodeForAfrica/sourceAFRICA-secrets secrets
 bundle install
 rails runner -e production "puts Organization.count"

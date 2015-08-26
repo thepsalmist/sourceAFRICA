@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ValidatorsTest < ActiveSupport::TestCase
   it "is able to validate domain names" do
-    %w(google.com www.documentcloud.org internal.web1.est.example.com).each do |domain|
+    %w(google.com sourceafrica.net internal.web1.est.example.com).each do |domain|
       assert DC::Validators::DOMAIN.match(domain), "#{domain} wasn't marked as valid and should be."
     end
     %w(biz$ness.com google.com;drop google.c login).each do |domain|
@@ -21,7 +21,7 @@ class ValidatorsTest < ActiveSupport::TestCase
 
 
   it "can validate email addresses" do
-    %w(jsmith@example.com jeremy@documentcloud.org bill+peters@gmail.com).each do |email|
+    %w(jsmith@example.com david@codeforafrica.org justin+arenstein@gmail.com).each do |email|
       assert DC::Validators::EMAIL.match(email), "#{email} wasn't marked as valid and should be."
     end
     %w(biz[at]docs.com 20#10@gmail.com).each do |email|

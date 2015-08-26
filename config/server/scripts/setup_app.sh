@@ -30,7 +30,7 @@ bower install --no-interactive
 
 # # Set password in environment.
 # sudo su -l ubuntu <<EOF
-# cd /home/ubuntu/documentcloud && rails runner "ENV['PASSWORD']='hi'"
+# cd /home/ubuntu/sourceAFRICA && rails runner "ENV['PASSWORD']='hi'"
 # EOF
 
 
