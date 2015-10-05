@@ -37,7 +37,7 @@ class ProcessingJob < ActiveRecord::Base
       case object.action
       when "update_access"
         "#{DC.server_root(:ssl => false)}/import/update_access"
-      when /(large_)?document_import/
+      when /^(large_)?document_import|redact_pages|document_insert_pages|document_reorder_pages|document_remove_pages|reindex_document$/
         "#{DC.server_root(:ssl => false)}/import/cloud_crowd"
       else
         ""
@@ -68,7 +68,7 @@ class ProcessingJob < ActiveRecord::Base
       # We've collected all the info we need, so
       save # it and retain the lock on the document.
     rescue Errno::ECONNREFUSED, RestClient::Exception => error
-      LifecycleMailer.exception_notification(e).deliver
+      LifecycleMailer.exception_notification(error).deliver
       # In the event of an error while communicating with CloudCrowd, unlock the document.
       self.update_attributes :complete => true
       #document.update :status => AVAILABLE
