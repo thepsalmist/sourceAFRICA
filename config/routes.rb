@@ -155,7 +155,6 @@ DC::Application.routes.draw do
   get '/privacy'       => 'home#privacy',                                            :as => :privacy
   get '/p3p.:format'   => 'home#p3p',                                                :as => :p3p
   get '/home'          => redirect('/public/search'),                                :as => :home
-  get '/news'          => 'home#news',                                               :as => :news
   get '/opensource'    => redirect('https://github.com/CodeForAfrica/sourceAFRICA'), :as => :opensource
   get '/about'         => 'home#about',                                              :as => :about
   get '/contact'       => 'home#contact',                                            :as => :contact
