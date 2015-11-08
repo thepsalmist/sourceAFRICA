@@ -1,52 +1,15 @@
 namespace :build do
 
-  BACKBONE         = '../backbone/backbone.js'
-  UNDERSCORE       = '../underscore/underscore.js'
-  VISUALSEARCH_JS  = '../visualsearch/build/visualsearch.js'
-  VISUALSEARCH_CSS = '../visualsearch/build/visualsearch.css'
-
-  # Figure out the version number of a JS source file.
-  def get_version(string)
-    string.match(/VERSION = '(\S+)'/)[1]
-  end
-
-  # Pull in a new build of Backbone.
-  task :backbone do
-    version = get_version File.read BACKBONE
-    FileUtils.cp BACKBONE, "public/javascripts/vendor/backbone-#{version}.js", :verbose => true
-  end
-
-  # Pull in a new build of Underscore.
-  task :underscore do
-    version = get_version File.read UNDERSCORE
-    FileUtils.cp UNDERSCORE, "public/javascripts/vendor/underscore-#{version}.js", :verbose => true
-  end
-
-  # Pull in a new build of VisualSearch.
-  task :visualsearch do
-    version = get_version File.read VISUALSEARCH_JS
-    FileUtils.cp VISUALSEARCH_JS, "public/javascripts/vendor/visualsearch-#{version}.js", :verbose => true
-    FileUtils.cp VISUALSEARCH_CSS, "public/stylesheets/vendor/", :verbose => true
-
-    # Fix image url paths.
-    File.open('public/stylesheets/vendor/visualsearch.css', 'r+') do |file|
-      css = file.read
-      css.gsub!(/url\((.*?)images\/embed\/icons/, 'url(../../images/embed/icons')
-      file.rewind
-      file.write(css)
-      file.truncate(css.length)
-    end
-  end
-
   # Pull in a new build of the Document Viewer.
   task :viewer do
+    build_dir = "tmp/build"
 
     Dir.chdir '../document-viewer'
 
-    FileUtils.rm_r('build') if File.exists?('build')
-    sh "jammit -f -o build"
-    sh "rm build/*.gz"
-    Dir['build/*.css'].each do |css_file|
+    FileUtils.rm_r(build_dir) if File.exists?(build_dir)
+    sh "jammit -f -o #{build_dir}"
+    sh "rm #{build_dir}/*.gz"
+    Dir["#{build_dir}/*.css"].each do |css_file|
       File.open(css_file, 'r+') do |file|
         css = file.read
         css.gsub!(/(\.\.\/)+images/, 'images')
@@ -55,31 +18,38 @@ namespace :build do
         file.truncate(css.length)
       end
     end
-    FileUtils.cp_r('public/images', 'build/images')
+    FileUtils.cp_r("public/images", "#{build_dir}/images")
 
     # Export back to DocumentCloud
-    FileUtils.cp_r('build/images', '../documentcloud/public/viewer')
-    `cat build/viewer.js build/templates.js > build/viewer_new.js`
-    FileUtils.rm_r(['build/viewer.js', 'build/templates.js'])
-    FileUtils.mv 'build/viewer_new.js', 'build/viewer.js'
-    FileUtils.cp 'build/print.css', "../documentcloud/public/viewer/printviewer.css"
-    Dir['build/viewer*'].each do |asset|
+    FileUtils.cp_r("#{build_dir}/images", "../documentcloud/public/viewer")
+    sh "cat #{build_dir}/viewer.js #{build_dir}/templates.js > #{build_dir}/viewer_new.js"
+    FileUtils.rm_r(["#{build_dir}/viewer.js", "#{build_dir}/templates.js"])
+    FileUtils.mv "#{build_dir}/viewer_new.js", "#{build_dir}/viewer.js"
+    FileUtils.cp "#{build_dir}/print.css", "../documentcloud/public/viewer/printviewer.css"
+    Dir["#{build_dir}/viewer*"].each do |asset|
       FileUtils.cp(asset, "../documentcloud/public/viewer/#{File.basename(asset)}")
     end
-    FileUtils.rm_r('build') if File.exists?('build')
 
+    FileUtils.rm_r(build_dir) if File.exists?(build_dir) # Clean up tmp
   end
-  
+
   task :note_embed do
-    FileUtils.cp_r(Dir.glob("public/javascripts/vendor/documentcloud-notes/dist/*"), "public/note_embed")
+    note_embed_dir = 'public/note_embed'
+
+    FileUtils.rm_r(note_embed_dir) if File.exists?(note_embed_dir)
+    FileUtils.mkdir(note_embed_dir)
+    FileUtils.cp_r(Dir.glob("public/javascripts/vendor/documentcloud-notes/dist/*"), note_embed_dir)
+    # TODO: Configure S3/CloudFront to serve gzipped versions; until then, nix
+    sh "rm #{note_embed_dir}/*.gz"
   end
 
   task :search_embed do
-    FileUtils.rm_r('build') if File.exists?('build')
-    sh "jammit -f -o build -c config/search_embed_assets.yml"
-    sh "rm build/*.gz"
+    search_embed_dir = "public/search_embed"
+    build_dir        = "tmp/build"
 
-    Dir['build/*.css'].each do |css_file|
+    FileUtils.rm_r(build_dir) if File.exists?(build_dir)
+    sh "jammit -f -o #{build_dir} -c config/search_embed_assets.yml"
+    Dir["#{build_dir}/*.css"].each do |css_file|
       File.open(css_file, 'r+') do |file|
         css = file.read
         css.gsub!("/images/search_embed", 'images')
@@ -88,12 +58,12 @@ namespace :build do
         file.truncate(css.length)
       end
     end
-    FileUtils.cp_r("public/images/search_embed", 'build/images') if File.exists?("public/images/search_embed")
+    FileUtils.cp_r("public/images/search_embed", "#{build_dir}/images") if File.exists?("public/images/search_embed")
 
-    FileUtils.rm_r("public/search_embed") if File.exists?("public/search_embed")
-    FileUtils.cp_r('build', "public/search_embed")
+    FileUtils.rm_r(search_embed_dir) if File.exists?(search_embed_dir)
+    FileUtils.cp_r(build_dir, search_embed_dir)
 
-    FileUtils.rm_r('build') if File.exists?('build')
+    FileUtils.rm_r(build_dir) if File.exists?(build_dir) # Clean up tmp
   end
 
 end
