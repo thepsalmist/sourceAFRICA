@@ -25,19 +25,19 @@ namespace :build do
       FileUtils.cp_r("public/images", "#{build_dir}/images")
 
       # Export back to DocumentCloud
-      FileUtils.cp_r("#{build_dir}/images", "../documentcloud/public/viewer")
+      FileUtils.cp_r("#{build_dir}/images", "../sourceAFRICA/public/viewer")
       `cat #{build_dir}/viewer.js #{build_dir}/templates.js > #{build_dir}/viewer_new.js`
       FileUtils.rm_r(["#{build_dir}/viewer.js", "#{build_dir}/templates.js"])
       FileUtils.mv("#{build_dir}/viewer_new.js", "#{build_dir}/viewer.js")
-      FileUtils.cp("#{build_dir}/print.css", "../documentcloud/public/viewer/printviewer.css")
+      FileUtils.cp("#{build_dir}/print.css", "../sourceAFRICA/public/viewer/printviewer.css")
       Dir["#{build_dir}/viewer*"].each do |asset|
-        FileUtils.cp(asset, "../documentcloud/public/viewer/#{File.basename(asset)}")
+        FileUtils.cp(asset, "../sourceAFRICA/public/viewer/#{File.basename(asset)}")
       end
 
       # Clean up temp build directory
       FileUtils.rm_r(build_dir) if File.exists?(build_dir)
 
-      Dir.chdir '../documentcloud'
+      Dir.chdir '../sourceAFRICA'
 
       puts "Done building viewer"
     end
