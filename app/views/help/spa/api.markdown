@@ -318,13 +318,13 @@ default_page     | (opcional) Abra el documento a una página específica   | 3
 <a name="oembed-pages"></a>
 ### Ejemplo petición página
 
-    /api/oembed.json?url=https%3A%2F%2Fwww.documentcloud.org%2Fdocuments%2Fdoc-name%2Fpages%2F5.html
+    /api/oembed.json?url=https%3A%2F%2Fsourceafrica.net%2Fdocuments%2Fdoc-name%2Fpages%2F5.html
 
 ### Parameters for pages
 
 Parameter        | Description           |  Example
 -----------------|-----------------------|--------------
-url              | **(required)** De escape de URL documento página para incrustar     | https%3A%2F%2Fwww.documentcloud.org%2F documents%2Fdoc-name%2Fpages%2F5.html
+url              | **(required)** De escape de URL documento página para incrustar     | https%3A%2F%2Fsourceafrica.net%2F documents%2Fdoc-name%2Fpages%2F5.html
 
 <a name="oembed-notes"></a>
 ### Ejemplo petición nota
@@ -341,7 +341,7 @@ container        | (optional) Especifique el contenedor DOM en el que se incorpo
 <a name="api-wrappers"></a>
 # API Envolturas
 
-La comunidad de código abierto ha contribuido varias aplicaciones votos para interactuar con el API del DocumentCloud. Ver la documentación de ejemplos y más información:
+La comunidad de código abierto ha contribuido varias aplicaciones votos para interactuar con el API del sourceAFRICA/DocumentCloud. Ver la documentación de ejemplos y más información:
 
 **Python:** [python-documentcloud](http://python-documentcloud.readthedocs.org/en/latest/)
 

@@ -30,7 +30,7 @@ class OembedControllerTest < ActionController::TestCase
     assert_response 501
   end
 
-  it "shouldn't find URLs from non-DocumentCloud domains" do
+  it "shouldn't find URLs from non-sourceAFRICA domains" do
     get :oembed, :format => "json", :url => external_resource_url
     assert_response 404
   end

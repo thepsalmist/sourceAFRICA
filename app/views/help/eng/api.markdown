@@ -317,13 +317,13 @@ default_page     | (optional) Open the document to a specific page   | 3
 <a name="oembed-pages"></a>
 ### Example pages request
 
-    /api/oembed.json?url=https%3A%2F%2Fwww.documentcloud.org%2Fdocuments%2Fdoc-name%2Fpages%2F5.html
+    /api/oembed.json?url=https%3A%2F%2Fsourceafrica.net%2Fdocuments%2Fdoc-name%2Fpages%2F5.html
 
 ### Parameters for pages
 
 Parameter        | Description           |  Example
 -----------------|-----------------------|--------------
-url              | **(required)** URL-escaped document page to embed     | https%3A%2F%2Fwww.documentcloud.org%2Fdocuments%2Fdoc-name%2Fpages%2F5.html
+url              | **(required)** URL-escaped document page to embed     | https%3A%2F%2Fsourceafrica.net%2Fdocuments%2Fdoc-name%2Fpages%2F5.html
 
 <a name="oembed-notes"></a>
 ### Example note request
@@ -340,7 +340,7 @@ container        | (optional) Specify the DOM container in which to embed the vi
 <a name="api-wrappers"></a>
 # API Wrappers
 
-The open-source community has contributed several helpful libraries for interacting with DocumentCloud's API. See their documentation for examples and more information:
+The open-source community has contributed several helpful libraries for interacting with sourceAFRICA's/DocumentCloud's API. See their documentation for examples and more information:
 
 **Python:** [python-documentcloud](http://python-documentcloud.readthedocs.org/en/latest/)
 
