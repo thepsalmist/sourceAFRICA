@@ -121,15 +121,16 @@ dc.ui.PageEmbedDialog = dc.ui.Dialog.extend({
   _generateEmbedCode : function(embedOptions) {
     embedOptions = JSON.stringify(this._embedOptions(embedOptions));
     return JST['workspace/page_embed_code']({
-      doc:              this.doc,
-      docTitle:         this.doc.get('title'),
-      docContributor:   this.doc.get('account_name'),
-      docOrganization:  this.doc.get('organization_name'),
-      pagePermalink:    this._pagePermalink(),
-      pageNumber:       this._selectedPage,
-      pageImageUrl:     this._pageImageUrl(this._selectedPage),
-      pageTextUrl:      this._pageTextUrl(this._selectedPage),
-      options:          embedOptions
+      doc:               this.doc,
+      docTitle:          this.doc.get('title'),
+      docContributor:    this.doc.get('account_name'),
+      docOrganization:   this.doc.get('organization_name'),
+      pagePermalink:     this._pagePermalink(),
+      pageNumber:        this._selectedPage,
+      pageImageUrl:      this._pageImageUrl(this._selectedPage),
+      pageImageLargeUrl: this._pageImageUrl(this._selectedPage, 'large'),
+      pageTextUrl:       this._pageTextUrl(this._selectedPage),
+      options:           embedOptions
     });
   },
 
@@ -155,14 +156,6 @@ dc.ui.PageEmbedDialog = dc.ui.Dialog.extend({
 
   _pageTextUrl: function(pageNumber) {
     return this.doc.get('page_text_url').replace('{page}', pageNumber);
-  },
-
-  _pageImages : function() {
-    var pageImages = [];
-    _.times(this.doc.get('page_count'), function(pageNumber) {
-      pageImages.push(this._pageImageUrl(pageNumber + 1, 'small'));
-    }, this);
-    return pageImages;
   },
 
   nextStep : function() {
