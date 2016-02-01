@@ -200,8 +200,8 @@
       for dine læsere, før du gør det offentligt. Ændr på %sadgangs-rettigheder%s
       nu eller %s ret udgivelsesdato
   - document_publish_public_help: Dette dokument er offentligt. Det er i øjeblikket
-      tilgængeligt for brugere, der søger i sourceAFRICAs katalog og vil være synligt
-      for offentligheden , når du embeder det på din hjemmeside. Ændr på %adgangs-rettigheder%s
+      tilgængeligt for brugere, der søger i sourceAFRICA katalog og vil være synligt
+      for offentligheden , når du embeder det på din hjemmeside. Ændr på %sadgangs-rettigheder%s
       .
   - document_tools: Dokument-værktøjer
   - document_viewer_size: Dokument viewer størrelse
