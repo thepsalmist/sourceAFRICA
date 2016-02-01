@@ -1,11 +1,12 @@
 var request = require('request'),
     fs = require('fs');
 
-var url = 'https://openexchangerates.org/api/latest.json'
+var url = 'https://openexchangerates.org/api/latest.json';
+var app_id = process.argv[2];
 
 request({
     url: url,
-    qs: {'app_id': '31beaa8ba1c14720bd5a8734b937069f'}
+    qs: {'app_id': app_id}
   }, function (error, response, body) {
 
     if (!error && response.statusCode === 200) {
