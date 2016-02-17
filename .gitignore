@@ -32,3 +32,4 @@ public/javascripts/vendor/*/
 Vagrantfile
 
 public/javascripts/rates.json
+node_modules
