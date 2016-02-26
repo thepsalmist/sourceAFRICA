@@ -26,15 +26,15 @@ La forma más sencilla de compartir su trabajo en DocumentCloud con los lectores
 
 ### Documento completo:
 
-`https://www.documentcloud.org/documents/282753-lefler-thesis.html`
+`https://sourceafrica.net/documents/19789-everest.html`
 
 ### Documento abierto a una página específica:
 
-`https://www.documentcloud.org/documents/282753-lefler-thesis.html#document/p22`
+`https://sourceafrica.net/documents/19789-everest.html#document/p2`
 
 ### Documento abierto a una nota específica:
 
-`https://www.documentcloud.org/documents/282753-lefler-thesis.html#document/p57/a42283`
+`https://sourceafrica.net/documents/19789-everest.html#document/p1/a143`
 
 Para encontrar la dirección URL (o enlace permanente) de una nota, abra la nota y seleccione el icono de enlace <span class="icon permalink" style="padding-left:16px;position:relative;top: -2px;">&#65279;</span>. Barra de direcciones del navegador se actualiza para mostrar la URL completa de la anotación.
 

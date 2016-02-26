@@ -29,15 +29,15 @@ The most simple way to share your work in DocumentCloud with readers is to publi
 
 ### Full document:
 
-`https://www.documentcloud.org/documents/282753-lefler-thesis.html`
+`https://sourceafrica.net/documents/19789-everest.html`
 
 ### Document open to a specific page:
 
-`https://www.documentcloud.org/documents/282753-lefler-thesis.html#document/p22`
+`https://sourceafrica.net/documents/19789-everest.html#document/p2`
 
 ### Document open to a specific note:
 
-`https://www.documentcloud.org/documents/282753-lefler-thesis.html#document/p57/a42283`
+`https://sourceafrica.net/documents/19789-everest.html#document/p1/a143`
 
 To find the URL (or permalink) of a note, open the note and select the link icon <span class="icon permalink" style="padding-left:16px;position:relative;top: -2px;">&#65279;</span>. Your browser's address bar will be updated to display the full URL of the annotation.
 
