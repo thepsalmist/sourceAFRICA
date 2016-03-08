@@ -36,8 +36,7 @@ class AnnotationsController < ApplicationController
       end
       format.html do
         @current_annotation_dimensions = current_annotation.embed_dimensions
-        if params[:embed] == 'embed'
-          # TODO: Create a route that actually works (see pages example).
+        if params[:embed] == 'true'
           # We have a special, extremely stripped-down show page for when we're
           # being iframed. The normal show page can also be iframed, but there
           # will be a flash of unwanted layout elements before the JS/CSS 
@@ -53,6 +52,7 @@ class AnnotationsController < ApplicationController
 
   # Print out all the annotations for a document (or documents.)
   def print
+    return bad_request unless params[:docs].is_a?(Array)
     docs = Document.accessible(current_account, current_organization).where( :id => params[:docs] )
     Document.populate_annotation_counts(current_account, docs)
     @documents_json = docs.map {|doc| doc.to_json(:annotations => true, :account => current_account) }
