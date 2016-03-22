@@ -8,6 +8,7 @@ defaults: &defaults
   aws_region:           eu-west-1
   aws_zone:             eu-west-1c
   preconfigured_ami_id: <%= secrets['ami'] %>
+  google_analytics_id:  <%= secrets['google_analytics_id'] %>
 
 development:
   <<: *defaults
