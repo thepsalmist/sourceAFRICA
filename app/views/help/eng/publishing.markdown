@@ -25,7 +25,7 @@ Before you publish a document, page, note or document set, you'll want to make s
 <a name="linking"></a>
 # Linking to a Document, Page or Note</span>
 
-The most simple way to share your work in DocumentCloud with readers is to publish a URL to a document. You can modify the URL to have the document open to a specific page or note. Follow these URL formats:
+The most simple way to share your work in sourceAFRICA with readers is to publish a URL to a document. You can modify the URL to have the document open to a specific page or note. Follow these URL formats:
 
 ### Full document:
 

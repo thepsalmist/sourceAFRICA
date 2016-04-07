@@ -1,5 +1,7 @@
 # AUTHORS
 
+sourceAFRICA is based on the amazing [DocumentCloud](https://github.com/documentcloud/documentcloud) code. It is currently being mainted by the core Code for Africa tech team with contributions by the community.
+
 DocumentCloud was created in 2009 through generous funding from the Knight Foundation and is currently a service of [Investigative Reporters and Editors](http://www.ire.org). The following is a work-in-progress list of the people who've built, maintained and/or contributed to the platform and its components:
 
 * Adam Hooper, [@adamhooper](https://github.com/adamhooper)

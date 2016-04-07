@@ -22,7 +22,7 @@ Antes de publicar un documento, página, nota o conjunto de documentos, usted qu
 <a name="linking"></a>
 # Enlace a un documento, página o nota
 
-La forma más sencilla de compartir su trabajo en DocumentCloud con los lectores es publicar un enlace a un documento. Puede modificar la dirección URL para que el documento abierto en una página o una nota específica. Siga estos formatos de URL:
+La forma más sencilla de compartir su trabajo en sourceAFRICA con los lectores es publicar un enlace a un documento. Puede modificar la dirección URL para que el documento abierto en una página o una nota específica. Siga estos formatos de URL:
 
 ### Documento completo:
 
