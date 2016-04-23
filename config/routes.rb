@@ -163,18 +163,18 @@ DC::Application.routes.draw do
   end
 
   # Home pages
-  get '/contributors',  to: 'home#contributors',  as: 'contributors'
-  get '/faq',           to: 'home#faq'
-  get '/terms',         to: 'home#terms',         as: 'terms'
-  get '/privacy',       to: 'home#privacy',       as: 'privacy'
-  get '/p3p.:format',   to: 'home#p3p',           as: 'p3p'
-  get '/home'          => redirect('/public/search'),                                :as => :home
-  get '/opensource'    => redirect('https://github.com/CodeForAfrica/sourceAFRICA'), :as => :opensource
-  get '/about',         to: 'home#about',         as: 'about'
-  get '/contact',       to: 'home#contact',       as: 'contact'
-  get '/help',          to: 'home#help'
-  get '/help/:page',    to: 'home#help'
-  get '/multilanguage', to: 'home#multilanguage', as: 'multilanguage'
+  get '/contributors',          to: 'home#contributors',  as: 'contributors'
+  get '/faq',                   to: 'home#faq'
+  get '/terms/api/(/:version)', to: 'home#api_terms',     as: 'api_terms', version: /[\d\.]+/
+  get '/terms(/:version)',      to: 'home#terms',         as: 'terms',     version: /[\d\.]+/
+  get '/p3p.:format',           to: 'home#p3p',           as: 'p3p'
+  get '/home'                   => redirect('/public/search'),                                :as => :home
+  get '/opensource'             => redirect('https://github.com/CodeForAfrica/sourceAFRICA'), :as => :opensource
+  get '/about',                 to: 'home#about',         as: 'about'
+  get '/contact',               to: 'home#contact',       as: 'contact'
+  get '/help',                  to: 'home#help'
+  get '/help/:page',            to: 'home#help'
+  get '/multilanguage',         to: 'home#multilanguage', as: 'multilanguage'
 
   # Redirects
   get '/index.php',             to: 'redirect#index',                     url: '/'
@@ -183,12 +183,12 @@ DC::Application.routes.draw do
   get '/who.php',               to: 'redirect#index', as: 'who',          url: '/about'
   get '/who-we-are',            to: 'redirect#index', as: 'who_we_are',   url: '/about'
   get '/partner.php',           to: 'redirect#index', as: 'partner',      url: '/contributors'
-  get '/blog/feed',             to: 'redirect#index', as: 'feed',         url: 'http://investigativecenters.org/feed'
-  get '/feed',                  to: 'redirect#index', as: 'root_feed',    url: 'http://investigativecenters.org/feed'
-  get '/blog/*parts',           to: 'redirect#index', as: 'blog',         url: 'http://investigativecenters.org/'
-  get '/clips.php',             to: 'redirect#index', as: 'clips',        url: 'http://investigativecenters.org/'
-  get '/news',                  to: 'redirect#index', as: 'news',         url: 'http://investigativecenters.org/'
-  get '/blog',                  to: 'redirect#index',                     url: 'http://investigativecenters.org/'
+  get '/blog/feed',             to: 'redirect#index', as: 'feed',         url: 'https://investigativecenters.org/feed'
+  get '/feed',                  to: 'redirect#index', as: 'root_feed',    url: 'https://investigativecenters.org/feed'
+  get '/blog/*parts',           to: 'redirect#index', as: 'blog',         url: 'https://investigativecenters.org/'
+  get '/clips.php',             to: 'redirect#index', as: 'clips',        url: 'https://investigativecenters.org/'
+  get '/news',                  to: 'redirect#index', as: 'news',         url: 'https://investigativecenters.org/'
+  get '/blog',                  to: 'redirect#index',                     url: 'https://investigativecenters.org/'
 
   # Admin section
   get '/admin', to: 'admin#index'

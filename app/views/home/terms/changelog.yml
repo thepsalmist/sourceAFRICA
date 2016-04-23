@@ -1,0 +1,6 @@
+- version:     1.0
+  current:     true
+  description: Original terms that governed from launch.
+- version:     2.0
+  description: 'Many changes, still in draft.'
+  start:       '2016-05-25'
