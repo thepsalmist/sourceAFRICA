@@ -23,6 +23,9 @@ cd /home/$USERNAME/sourceAFRICA
 gem install bundler
 bundle
 
+# [sourceAFRICA] Install Jekyll for frontend
+gem install jekyll
+
 # Install bower
 sudo npm install -g bower
 bower install --config.interactive=false
