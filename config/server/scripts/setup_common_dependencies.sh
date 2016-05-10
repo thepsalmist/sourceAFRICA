@@ -152,7 +152,7 @@ echo 'if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
 fi' > /etc/profile.d/chruby.sh
 
 # Install the current stable version of ruby.
-ruby-install ruby 2.3.0
+ruby-install ruby 2.3.1
 
 # turn off rdoc/ri generation for gems
 echo 'gem: --no-document' > /home/$USERNAME/.gemrc
