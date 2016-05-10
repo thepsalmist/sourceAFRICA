@@ -23,8 +23,8 @@ staging:
 production:
   <<: *defaults
   cloud_crowd_server:  <%= secrets['db_host'] %>:8080
-  cloud_crowd_console: sourceafrica.net:8080
-  server_root:         sourceafrica.net
+  cloud_crowd_console: dc.sourceafrica.net:8080
+  server_root:         dc.sourceafrica.net
   asset_root:          s3-eu-west-1.amazonaws.com/s3.sourceafrica.net
 
 test:
