@@ -36,8 +36,8 @@ DC::Application.routes.draw do
   end
 
   # Public search
-  get '/public/search',        => redirect('https://sourceafrica.net/search.html'), as: 'public_search'
-  get '/public/search/:query', to: 'public#index',                                  query: /.*/
+  get '/public/search'        => redirect('https://sourceafrica.net/search.html'), as: 'public_search'
+  get '/public/search/:query', to: 'public#index',                                 query: /.*/
 
   # API
   scope(:api, controller: 'api') do
