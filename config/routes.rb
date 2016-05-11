@@ -36,8 +36,8 @@ DC::Application.routes.draw do
   end
 
   # Public search
-  get '/public/search',        to: 'public#index', as: 'public_search'
-  get '/public/search/:query', to: 'public#index', query: /.*/
+  get '/public/search',        => redirect('https://sourceafrica.net/search.html'), as: 'public_search'
+  get '/public/search/:query', to: 'public#index',                                  query: /.*/
 
   # API
   scope(:api, controller: 'api') do
@@ -168,7 +168,7 @@ DC::Application.routes.draw do
   get '/terms/api/(/:version)', to: 'home#api_terms',     as: 'api_terms', version: /[\d\.]+/
   get '/terms(/:version)',      to: 'home#terms',         as: 'terms',     version: /[\d\.]+/
   get '/p3p.:format',           to: 'home#p3p',           as: 'p3p'
-  get '/home'                   => redirect('/public/search'),                                :as => :home
+  get '/home'                   => redirect('https://sourceafrica.net/'),                     :as => :home
   get '/opensource'             => redirect('https://github.com/CodeForAfrica/sourceAFRICA'), :as => :opensource
   get '/about',                 to: 'home#about',         as: 'about'
   get '/contact',               to: 'home#contact',       as: 'contact'
