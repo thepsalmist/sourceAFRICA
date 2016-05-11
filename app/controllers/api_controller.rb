@@ -26,7 +26,7 @@ class ApiController < ApplicationController
   end
 
   def search
-    opts = API_OPTIONS.merge(pick(params, :sections, :annotations, :entities, :mentions, :data))
+    opts = API_OPTIONS.merge(pick(params, :sections, :annotations, :entities, :mentions, :data, :contributor))
     if opts[:mentions] &&= opts[:mentions].to_i
       opts[:mentions] = 10  if opts[:mentions] > 10
       opts[:mentions] = nil if opts[:mentions] < 1
