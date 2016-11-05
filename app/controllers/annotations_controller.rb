@@ -38,16 +38,20 @@ class AnnotationsController < ApplicationController
       format.html do
         @current_annotation_dimensions = current_annotation.embed_dimensions
         if params[:embed] == 'true'
+          merge_embed_config
           # We have a special, extremely stripped-down show page for when we're
           # being iframed. The normal show page can also be iframed, but there
           # will be a flash of unwanted layout elements before the JS/CSS 
           # arrives which removes them.
           @embedded = true
           @exclude_analytics = true
-          render template: 'annotations/show_embedded', layout: 'minimal'
+          render template: 'annotations/show_embedded', layout: 'new'
         else
           make_oembeddable(current_annotation)
-          render layout: 'minimal'
+          set_minimal_nav text:    'Read the full document',
+                          xs_text: 'Full document',
+                          link:    current_annotation.contextual_url
+          render layout: 'new'
         end
       end
     end
@@ -115,6 +119,12 @@ class AnnotationsController < ApplicationController
 
   def current_document
     @current_document ||= Document.accessible(current_account, current_organization).find(params[:document_id])
+  end
+
+  def merge_embed_config
+    (@embed_options ||= {}).merge!(DC::Embed::Note::Config.new(
+      data: pick(params, *DC::Embed::Note.config_keys)
+    ).dump)
   end
 
 end
