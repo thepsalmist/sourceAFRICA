@@ -148,10 +148,6 @@ class ApplicationController < ActionController::Base
     response.headers.except! 'X-Frame-Options'
   end
   
-  def expire_pages(paths)
-    [paths].flatten.each { |path| expire_page path }
-  end
-
   # Select only a sub-set of passed parameters. Useful for whitelisting
   # attributes from the params hash before performing a mass-assignment.
   def pick(hash, *keys)
@@ -251,9 +247,12 @@ class ApplicationController < ActionController::Base
   # Return forbidden when the access is unauthorized.
   def forbidden(options = {})
     options = {
-      :error  => "Forbidden",
-      :locals => { post_login_url: CGI.escape(request.original_url) }
-    }.merge(options)
+      error: "Forbidden",
+      locals: {
+        post_login_url: CGI.escape(request.original_url),
+        is_document: false
+      }
+    }.deep_merge(options)
     error_response 403, options
   end
 
@@ -339,6 +338,12 @@ class ApplicationController < ActionController::Base
   # the JSON visible in the browser.
   def debug_api
     response.content_type = 'text/plain' if params[:debug]
+  end
+
+  def set_minimal_nav(text: 'Go to home', xs_text: false, link: '/')
+    @use_minimal_nav   = true
+    @minimal_back_text = xs_text ? "<span class='hidden-xs-down'>#{text}</span> <span class='hidden-sm-up'>#{xs_text}</span>" : text
+    @minimal_back_link = link
   end
 
   private

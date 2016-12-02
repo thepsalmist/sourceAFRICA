@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout 'minimal'
+  layout 'new'
 
   before_action :bouncer,             :only => [:show] if exclusive_access?
   #before_action :login_required,      :only => [:update, :destroy]
@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   before_action :set_p3p_header,      :only => [:show]
   after_action  :allow_iframe,        :only => [:show]
   #skip_before_action :verify_authenticity_token, :only => [:send_page_text]
-  
+
   def show
     document_id = (params[:id] || params[:document_id]).to_i
     return forbidden if Document.exists?(document_id) and not current_document
@@ -16,7 +16,12 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html do
+        @exclude_platformjs = true
+        @embed_options = {
+          container: '#DC-embed-container',
+        }
         if params[:embed] == 'true'
+          merge_embed_config
           # We have a special, extremely stripped-down show page for when we're
           # being iframed. The normal show page can also be iframed, but there
           # will be a flash of unwanted layout elements before the JS/CSS 
@@ -26,6 +31,9 @@ class PagesController < ApplicationController
           render template: 'pages/show_embedded'
         else
           make_oembeddable(current_page)
+          set_minimal_nav text:    'Read the full document',
+                          xs_text: 'Full document',
+                          link:    current_page.contextual_url
         end
       end
       
@@ -35,9 +43,7 @@ class PagesController < ApplicationController
       end
       
       format.js do
-        js = "DV.loadJSON(#{current_document_json});"
-        cache_page js if current_document.cacheable?
-        render :js => js
+        render :js => "DV.loadJSON(#{current_document_json});"
       end
 
       #format.txt { send_page_text }
@@ -67,4 +73,11 @@ class PagesController < ApplicationController
     return false unless current_document
     @current_page ||= current_document.pages.find_by_page_number(num.to_i)
   end
+
+  def merge_embed_config
+    (@embed_options ||= {}).merge!(DC::Embed::Page::Config.new(
+      data: pick(params, *DC::Embed::Page.config_keys)
+    ).dump)
+  end
+
 end

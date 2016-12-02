@@ -10,7 +10,7 @@ class FeaturedReport < ActiveRecord::Base
   before_save :fixup_url
 
   def fixup_url
-    self.url = "https://#{url}" unless url=~/^https\:\/\//
+    self.url = "http://#{url}" unless url=~/^https?\:\/\//
   end
 
   def writeup=(markdown)

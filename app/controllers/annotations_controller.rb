@@ -25,29 +25,29 @@ class AnnotationsController < ApplicationController
     respond_to do |format|
       format.json do
         @response = current_annotation.canonical(:include_image_url => true, :include_document_url => true)
-        # TODO: https://github.com/documentcloud/documentcloud/issues/291
-        # cache_page @response.to_json if current_annotation.cacheable?
         render_cross_origin_json
       end
       format.js do
         json = current_annotation.canonical(:include_image_url => true, :include_document_url => true).to_json
-        js = "dc.embed.noteCallback(#{json})"
-        cache_page js if current_annotation.cacheable?
-        render :js => js
+        render :js => "dc.embed.noteCallback(#{json})"
       end
       format.html do
         @current_annotation_dimensions = current_annotation.embed_dimensions
         if params[:embed] == 'true'
+          merge_embed_config
           # We have a special, extremely stripped-down show page for when we're
           # being iframed. The normal show page can also be iframed, but there
           # will be a flash of unwanted layout elements before the JS/CSS 
           # arrives which removes them.
           @embedded = true
           @exclude_analytics = true
-          render template: 'annotations/show_embedded', layout: 'minimal'
+          render template: 'annotations/show_embedded', layout: 'new'
         else
           make_oembeddable(current_annotation)
-          render layout: 'minimal'
+          set_minimal_nav text:    'Read the full document',
+                          xs_text: 'Full document',
+                          link:    current_annotation.contextual_url
+          render layout: 'new'
         end
       end
     end
@@ -70,7 +70,6 @@ class AnnotationsController < ApplicationController
     note_attrs[:access] = ACCESS_MAP[note_attrs[:access].to_sym]
     doc = current_document
     return forbidden unless note_attrs[:access] == PRIVATE || current_account.allowed_to_comment?(doc)
-    expire_pages doc.cache_paths if doc.cacheable?
     note_attrs[:organization_id] = current_account.organization_id
     anno = doc.annotations.create(note_attrs.merge(
       :account_id      => current_account.id
@@ -86,8 +85,6 @@ class AnnotationsController < ApplicationController
     attrs = pick(params, :title, :content, :access)
     attrs[:access] = DC::Access::ACCESS_MAP[attrs[:access].to_sym]
     anno.update_attributes(attrs)
-    expire_pages current_document.cache_paths if current_document.cacheable?
-    expire_pages current_annotation.cache_paths if current_annotation.cacheable?
     anno.reset_public_note_count
     json anno
   end
@@ -97,7 +94,6 @@ class AnnotationsController < ApplicationController
     return not_found unless anno = current_annotation
     return forbidden(:error => "You don't have permission to delete the note.") unless current_account.allowed_to_edit?(anno)
     anno.destroy
-    expire_pages current_document.cache_paths if current_document.cacheable?
     json nil
   end
 
@@ -115,6 +111,12 @@ class AnnotationsController < ApplicationController
 
   def current_document
     @current_document ||= Document.accessible(current_account, current_organization).find(params[:document_id])
+  end
+
+  def merge_embed_config
+    (@embed_options ||= {}).merge!(DC::Embed::Note::Config.new(
+      data: pick(params, *DC::Embed::Note.config_keys)
+    ).dump)
   end
 
 end

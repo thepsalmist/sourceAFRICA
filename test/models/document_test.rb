@@ -62,13 +62,13 @@ class DocumentTest < ActiveSupport::TestCase
   end
 
   def test_sets_annotation_counts
-    assert_equal 2, doc.annotations.count
+    assert_equal 3, doc.annotations.count
     Document.populate_annotation_counts( louis, [doc] )
-    assert_equal 2, doc.annotation_count
+    assert_equal 3, doc.annotation_count
 
     assert_equal 102, doc.public_note_count # from fixture, is wildly inaccurate
     doc.reset_public_note_count
-    assert_equal 1, doc.public_note_count # much better
+    assert_equal 2, doc.public_note_count # much better
   end
 
   def test_strips_whitespace_from_title
@@ -84,7 +84,7 @@ class DocumentTest < ActiveSupport::TestCase
   end
 
   def test_calculates_annotations_per_page
-    assert_equal( { 2=>1, 1=>1 }, doc.per_page_annotation_counts )
+    assert_equal( { 2=>2, 1=>1 }, doc.per_page_annotation_counts )
   end
 
   def test_calculates_ordered_sections
@@ -92,7 +92,7 @@ class DocumentTest < ActiveSupport::TestCase
   end
 
   def test_calculates_ordered_annotations
-    assert_equal [annotations(:private),annotations(:public)], doc.ordered_annotations( louis )
+    assert_equal [annotations(:private),annotations(:public),annotations(:default_title)], doc.ordered_annotations( louis )
   end
 
   def test_populates_author_information_on_annotations
@@ -197,17 +197,15 @@ class DocumentTest < ActiveSupport::TestCase
     assert_equal "#{base}/annotations", doc.annotations_path
     assert_equal "#{doc.id}-#{doc.slug}", doc.canonical_id
     assert_equal "/#{base}-#{doc.slug}.json", doc.canonical_path
-    assert_equal "/#{base}-#{doc.slug}.js", doc.canonical_js_cache_path
-    assert_equal "/#{base}-#{doc.slug}.json", doc.canonical_json_cache_path
     assert_equal "#{doc.slug}-p{page}-{size}.gif", doc.page_image_template
     assert_equal "#{doc.slug}-p{page}.txt", doc.page_text_template
-    assert_equal "#{DC.cdn_root(:force_ssl=>true)}/#{slug}.pdf", doc.public_pdf_url
+    assert_equal "#{DC.asset_root(:force_ssl=>true)}/#{slug}.pdf", doc.public_pdf_url
     assert_equal "#{DC.server_root}/#{slug}.pdf", doc.private_pdf_url
     assert_equal doc.public_pdf_url, doc.pdf_url
     assert_equal secret_doc.private_pdf_url, secret_doc.pdf_url
-    assert_equal "#{DC.cdn_root(:force_ssl=>true)}/#{base}/pages/#{doc.slug}-p1-thumbnail.gif", doc.thumbnail_url
+    assert_equal "#{DC.asset_root(:force_ssl=>true)}/#{base}/pages/#{doc.slug}-p1-thumbnail.gif", doc.thumbnail_url
 
-    assert_equal "#{DC.cdn_root(:force_ssl=>true)}/#{slug}.txt", doc.public_full_text_url
+    assert_equal "#{DC.asset_root(:force_ssl=>true)}/#{slug}.txt", doc.public_full_text_url
     assert_equal "#{DC.server_root}/#{slug}.txt", doc.private_full_text_url
     assert_equal doc.public_full_text_url, doc.full_text_url
     assert_equal secret_doc.private_full_text_url, secret_doc.full_text_url

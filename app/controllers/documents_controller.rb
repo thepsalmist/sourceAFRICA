@@ -21,15 +21,18 @@ class DocumentsController < ApplicationController
   def show
     Account.login_reviewer(params[:key], session, cookies) if params[:key]
     doc = current_document(true)
-    return forbidden if doc.nil? && Document.exists?(params[:id].to_i)
+    return forbidden(locals: {is_document: true}) if doc.nil? && Document.exists?(params[:id].to_i)
     return not_found unless doc
     options = {data: true}.merge(pick(params, :data))
     #fresh_when last_modified: (current_document.updated_at || Time.now).utc, etag: current_document
     respond_to do |format|
       format.html do
-        @sidebar    = !(params[:sidebar] || '').match(/no|false/)
-        @responsive = (params[:responsive] || '').match /yes|true/
-        populate_editor_data if logged_in?
+        @embed_options = {
+          container: '#viewer',
+          sidebar:   !(params[:sidebar] || '').match(/no|false/) # For Overview
+        }
+        merge_embed_config if params[:embed] == 'true'
+        populate_editor_data if current_account && current_organization
         return if date_requested?
         return if entity_requested?
         make_oembeddable(doc)
@@ -40,14 +43,10 @@ class DocumentsController < ApplicationController
       format.text { redirect_to(doc.full_text_url) }
       format.json do
         @response = doc.canonical(options)
-        # TODO: https://github.com/documentcloud/documentcloud/issues/291
-        # cache_page @response.to_json if doc.cacheable?
         render_cross_origin_json
       end
       format.js do
-        js = "DV.loadJSON(#{doc.canonical(options).to_json});"
-        cache_page js if doc.cacheable?
-        render :js => js
+        render :js => "DV.loadJSON(#{doc.canonical(options).to_json});"
       end
       format.xml do
         render :xml => doc.canonical(options).to_xml(:root => 'document')
@@ -63,8 +62,6 @@ class DocumentsController < ApplicationController
     attrs = pick(params, :access, :title, :description, :source,
                          :related_article, :remote_url, :publish_at, :data, :language)
     return json(doc, 403) unless doc.secure_update attrs, current_account
-
-    clear_current_document_cache
     Document.populate_annotation_counts(current_account, [doc])
     json doc
   end
@@ -72,7 +69,6 @@ class DocumentsController < ApplicationController
   def destroy
     return not_found unless doc = current_document(true)
     return forbidden(:error => "You don't have permission to delete the document.") unless current_account.owns_or_collaborates?(doc)
-    clear_current_document_cache
     doc.destroy
     json nil
   end
@@ -241,7 +237,6 @@ class DocumentsController < ApplicationController
     @options = params[:options]
   end
 
-
   private
 
   def populate_editor_data
@@ -281,9 +276,11 @@ class DocumentsController < ApplicationController
     return false unless current_document(true)
     @current_page ||= current_document.pages.find_by_page_number(num.to_i)
   end
-  
-  def clear_current_document_cache
-    paths = current_document.cache_paths + current_document.annotations.map(&:cache_paths)
-    expire_pages paths
+
+  def merge_embed_config
+    (@embed_options ||= {}).merge!(DC::Embed::Document::Config.new(
+      data: pick(params, *DC::Embed::Document.config_keys)
+    ).dump)
   end
+
 end

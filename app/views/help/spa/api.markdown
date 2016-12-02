@@ -287,7 +287,7 @@ Generar un código de inserción para un recurso (un documento o una nota) utili
 <a name="oembed-documents"></a>
 ### Ejemplo petición documento
 
-    /api/oembed.json?url=https%3A%2F%2Fsourceafrica.net%2Fdocuments%2Fdoc-name.html&responsive=true
+    /api/oembed.json?url=https%3A%2F%2Fsourceafrica.net%2Fdocuments%2Fdoc-name.html
 
 ### Parámetros para documentos
 
@@ -305,8 +305,8 @@ sidebar          | (opcional) Mostrar la barra lateral    | true (default)
 pdf              | (opcional) Para incluir un enlace al PDF original    | true (default)
 responsive       | (opcional) Hacer que el espectador adaptable    | false (default)
 responsive_offset| (opcional) Especifique la altura del cabezal (pixels)    | 4
-default_note     | (opcional) Abra el documento en una nota específica. Un entero que representa el ID de nota | 214279
-default_page     | (opcional) Abra el documento a una página específica   | 3
+note             | (opcional) Abra el documento en una nota específica. Un entero que representa el ID de nota | 214279
+page             | (opcional) Abra el documento a una página específica   | 3
 
 <a name="oembed-pages"></a>
 ### Ejemplo petición página

@@ -33,3 +33,5 @@ Vagrantfile
 
 public/javascripts/rates.json
 node_modules
+
+public/status.html

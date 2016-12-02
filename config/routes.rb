@@ -15,18 +15,18 @@ DC::Application.routes.draw do
   get '/search/embed/:options.:format',    to: 'search#embed', q: /[^\/;,?]*/, options: /p-(\d+)-per-(\d+)-order-(\w+)-org-(\d+)(-secure)?/
 
   # Journalist workspace and surrounding HTML
-  get '/search',                  to: 'workspace#index', as: 'search'
-  get '/search/preview',          to: 'search#preview', as: 'preview'
-  get '/search/restricted_count', to: 'search#restricted_count'
-  get '/search(/:query)',         to: 'workspace#index'
-  get '/help',                    to: 'workspace#help'
-  get '/help/:page',              to: 'workspace#help'
-  get '/results',                 to: 'workspace#index', as: 'results'
+  get '/search',                   to: 'workspace#index', as: 'search'
+  get '/search/preview',           to: 'search#preview', as: 'preview'
+  get '/search/restricted_count',  to: 'search#restricted_count'
+  get '/search(/:query)(/p:page)', to: 'workspace#index'
+  get '/help',                     to: 'workspace#help'
+  get '/help/:page',               to: 'workspace#help'
+  get '/results',                  to: 'workspace#index', as: 'results'
 
   # Authentication
   scope(controller: 'authentication') do
-    match '/login',                       action: 'login', via: [:get, :post]
-    get '/logout',                        action: 'logout'
+    match '/login',                       action: 'login', via: [:get, :post], as: 'login'
+    get '/logout',                        action: 'logout', as: 'logout'
     get '/auth/remote_data/:document_id', action: 'remote_data'
 
     # Third party auth via OmniAuth
@@ -36,7 +36,7 @@ DC::Application.routes.draw do
   end
 
   # Public search
-  get '/public/search(/:query)' => redirect('https://sourceafrica.net/search.html'), as: 'public_search'
+  get '/public/search(/:query)(/:page)' => redirect('https://sourceafrica.net/search.html'), as: 'public_search'
 
   # API
   scope(:api, controller: 'api') do
@@ -70,6 +70,7 @@ DC::Application.routes.draw do
     end
   end
 
+  get '/documents', to: redirect('/public/search')
   resources :documents do
 
     resources :annotations do
@@ -133,6 +134,9 @@ DC::Application.routes.draw do
   get '/download/*args.zip', to: 'download#bulk_download', as: 'bulk_download'
 
   # Accounts and account management
+  get    '/accounts/mailboxes',     to: 'accounts#mailboxes',       as: 'mailboxes'
+  post   '/accounts/mailboxes',     to: 'accounts#create_mailbox',  as: 'create_mailbox'
+  delete '/accounts/mailboxes/:id', to: 'accounts#revoke_mailbox',  as: 'revoke_mailbox'
   resources :accounts do
     collection do
       get 'logged_in'
@@ -145,8 +149,8 @@ DC::Application.routes.draw do
   match '/reset_password',       to: 'accounts#reset',  via: [:get, :post], as: 'reset_password'
 
   # Account requests
-  get '/signup', to: 'redirect#index', url: '/plans/apply'
-  get '/apply',  to: 'redirect#index', url: '/plans/apply'
+  get '/signup', to: 'redirect#index', url: '/plans/apply', as: 'signup'
+  get '/apply',  to: 'redirect#index', url: '/plans/apply', as: 'apply'
 
   # Organizations management
   resources :organizations, only: [:update]
