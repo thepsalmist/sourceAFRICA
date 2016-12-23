@@ -9,13 +9,16 @@ defaults: &defaults
   aws_region:           eu-west-1
   aws_zone:             eu-west-1c
   preconfigured_ami_id: <%= secrets['ami'] %>
-  google_analytics_id:  <%= secrets['google_analytics_id'] %>
+  google_analytics_id:  <%= secrets['google_analytics'] || secrets['google_analytics_id'] %>
   platform_name:        <%= secrets['platform_name'] %>
   platform_domain:      <%= secrets['platform_domain'] %>
   twitter_username:     '<%= secrets['twitter_username'] %>'
+  accept_donations:     true
+  show_donation_widget: false
 
 development:
   <<: *defaults
+  show_donation_widget: true
 
 staging:
   <<: *defaults
@@ -32,6 +35,7 @@ production:
   server_root:          dc.sourceafrica.net
   asset_root:           s3-eu-west-1.amazonaws.com/s3.sourceafrica.net
   workspace_asset_root: s3-eu-west-1.amazonaws.com/s3.sourceafrica.net
+  show_donation_widget: false
 
 test:
   <<: *defaults
