@@ -149,8 +149,8 @@ DC::Application.routes.draw do
   match '/reset_password',       to: 'accounts#reset',  via: [:get, :post], as: 'reset_password'
 
   # Account requests
-  get '/signup', to: 'redirect#index', url: '/plans/apply', as: 'signup'
-  get '/apply',  to: 'redirect#index', url: '/plans/apply', as: 'apply'
+  get '/signup', to: 'redirect#index', url: '/contact', as: 'signup'
+  get '/apply',  to: 'redirect#index', url: '/contact', as: 'apply'
 
   # Organizations management
   resources :organizations, only: [:update]
