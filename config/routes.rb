@@ -151,6 +151,7 @@ DC::Application.routes.draw do
   # Account requests
   get '/signup', to: 'redirect#index', url: '/contact', as: 'signup'
   get '/apply',  to: 'redirect#index', url: '/contact', as: 'apply'
+  get '/plans/apply', to: 'redirect#index', url: '/contact', as: 'plans_apply'
 
   # Organizations management
   resources :organizations, only: [:update]
