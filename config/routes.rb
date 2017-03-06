@@ -8,7 +8,7 @@ DC::Application.routes.draw do
   get '/:object/loader',       to: 'embed#loader',  as: 'embed_loader', object: /viewer|notes|embed/
 
   # Internal search API
-  get '/search/documents.json', to: 'search#documents'
+  get '/search/documents.:format', to: 'search#documents'
 
   # Search embeds
   get '/search/embed/:q/:options.:format', to: 'search#embed', q: /[^\/;,?]*/, options: /p-(\d+)-per-(\d+)-order-(\w+)-org-(\d+)(-secure)?/
@@ -202,10 +202,21 @@ DC::Application.routes.draw do
   get  '/donate/thanks/preview', to: 'donate#thanks', as: 'donate_thanks_preview', preview: true
 
   # Admin section
-  get '/admin', to: 'admin#index'
+  get '/admin',                     to: 'admin#index',            as: 'admin'
+  get '/admin/tools',               to: 'admin#tools',            as: 'admin_tools'
+  get 'admin/memberships',          to: 'admin#memberships',      as: 'admin_memberships'
+  get '/admin/organizations/:slug', to: 'admin#organization',     as: 'admin_organization'
+  get '/admin/organizations/',      to: 'admin#organizations',    as: 'admin_organizations'
+  get '/admin/organizations/:slug/download_document_hits',
+      to: 'admin#download_document_hits', as: 'admin_download_document_hits'
+  get '/admin/organizations/:slug/edit',
+      to: 'admin#edit_organization',      as: 'admin_edit_organization'
+  match '/admin/organizations/:id/update', to: 'admin#update_organization',
+        as: 'admin_update_organization', via: [:post, :put, :patch]
+  match '/admin/add_organization', to: 'admin#add_organization', as: 'admin_add_organization', via: [:get, :post]
   get '/admin/health_check/:subject/:env', to: 'admin#health_check', subject: /page_embed/, env: /production|staging/
-  get '/admin/signup', to: 'admin#signup', as: 'admin_signup'
-  
+  get '/admin/signup', to: redirect('/admin/add_organization')
+
   # Standard fallback routes
   match '/:controller(/:action(/:id))', via: [:get, :post]
   get ':controller/:action.:format'

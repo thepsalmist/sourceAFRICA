@@ -1,6 +1,6 @@
 # Bienvenido a sourceAFRICA
 
-Si usted desea comenzar, pruebe nuestra [visita guiada](/help/tour), o eche un vistazo a [lo que otros periodistas están haciendo con sourceAFRICA.](/help/tour)
+Si usted desea comenzar, pruebe nuestra [visita guiada](/help/tour), eche un vistazo a [lo que otros periodistas están haciendo con sourceAFRICA](/featured), o lee nuestras [Preguntas Frecuentes](/faq).
 
 Descubra cómo:
 

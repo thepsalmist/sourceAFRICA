@@ -1,6 +1,6 @@
 # Welcome to sourceAFRICA
 
-If you're just looking to get started, try our [guided tour][] or take a look at [what other reporters are doing with sourceAFRICA][].
+If you're just looking to get started, try our [guided tour][], take a look at [what other reporters are doing with sourceAFRICA](/featured), or read our [Frequently Asked Questions](/faq).
 
 Find out how to:
 
@@ -32,5 +32,3 @@ Right-click on a document to open a context menu, showing a list of actions that
 <div class="static_only">
   For more information on specific topics, see the links in the side bar.
 </div>
-
-[what other reporters are doing with sourceAFRICA]: /featured

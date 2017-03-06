@@ -13,12 +13,11 @@ defaults: &defaults
   platform_name:        <%= secrets['platform_name'] %>
   platform_domain:      <%= secrets['platform_domain'] %>
   twitter_username:     '<%= secrets['twitter_username'] %>'
-  accept_donations:     true
+  accept_donations:     false
   show_donation_widget: false
 
 development:
   <<: *defaults
-  show_donation_widget: true
 
 staging:
   <<: *defaults
