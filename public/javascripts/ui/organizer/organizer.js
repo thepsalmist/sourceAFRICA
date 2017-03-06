@@ -25,7 +25,7 @@ dc.ui.Organizer = Backbone.View.extend({
   },
   
   initialize: function(options) {
-    _.bindAll(this, '_addSubView', '_removeSubView', 'renderAccounts');
+    _.bindAll(this, '_addProject', '_removeProject', 'renderAccounts');
     this._bindToSets();
     this.subViews = [];
   },
@@ -33,9 +33,10 @@ dc.ui.Organizer = Backbone.View.extend({
   render : function() {
     var searches = dc.account ? this.PRIVATE_SEARCHES : this.PUBLIC_SEARCHES;
     $(this.el).append(JST['organizer/sidebar']({searches : searches}));
-    this.projectInputEl = this.$('#project_input');
-    this.projectList    = this.$('.project_list');
-    this.sidebar        = $('#sidebar');
+    this.projectInputEl      = this.$('#project_input');
+    this.projectList         = this.$('.project_list');
+    this.$projectInvitations = this.$('#project_invitations');
+    this.sidebar             = $('#sidebar');
     this.renderAccounts();
     this.renderAll();
     return this;
@@ -43,8 +44,19 @@ dc.ui.Organizer = Backbone.View.extend({
 
   renderAll : function() {
     if (dc.account) {
-      if (Projects.isEmpty()) this.setMode('no', 'projects');
-      Projects.each(this._addSubView);
+      if (Projects.isEmpty()) {
+        this.setMode('no', 'projects');
+      } else {
+        Projects.each(this._addProject);
+      }
+      if (ProjectInvitations.isEmpty()) {
+        this.setMode('no', 'project_invitations')
+      } else {
+        this.projectInvitationList = new dc.ui.ProjectInvitationList({
+          el:         this.$projectInvitations,
+          collection: ProjectInvitations
+        });
+      }
     } else {
       this.$('.organization_list').html(JST['organizer/organizations']({organizations: Organizations}));
     }
@@ -138,8 +150,8 @@ dc.ui.Organizer = Backbone.View.extend({
 
   // Bind all possible and Project events for rendering.
   _bindToSets : function() {
-    Projects.bind('add',     this._addSubView);
-    Projects.bind('remove',  this._removeSubView);
+    Projects.bind('add',     this._addProject);
+    Projects.bind('remove',  this._removeProject);
     Accounts.bind('all',     this.renderAccounts);
   },
 
@@ -148,7 +160,7 @@ dc.ui.Organizer = Backbone.View.extend({
     return false;
   },
 
-  _addSubView : function(model) {
+  _addProject : function(model) {
     this.setMode('has', 'projects');
     var view = new dc.ui.Project({model : model}).render();
     this.subViews.push(view);
@@ -163,7 +175,7 @@ dc.ui.Organizer = Backbone.View.extend({
     dc.app.scroller.checkLater();
   },
 
-  _removeSubView : function(model) {
+  _removeProject : function(model) {
     this.subViews = _.without(this.subViews, model.view);
     $(model.view.el).remove();
     dc.app.scroller.checkLater();
