@@ -55,17 +55,16 @@ dc.ui.Admin = Backbone.View.extend({
       items   : [
         {title : 'Dashboard',                 onClick : function(){ window.location = '/admin/'; }},
         {title : 'Tools',                     onClick : function(){ window.location = '/admin/tools'; }},
-        {title : 'Add Organization',          onClick : function(){ window.location = '/admin/signup'; }},
-        {title : 'Modify Organization',       onClick : function(){ window.location = '/admin/organizations'; }},
-        {title : 'Modify Memberships',        onClick : function(){ window.location = '/admin/memberships'; }},
-        {title : 'Download Document Hits',    onClick : function(){ window.location = '/admin/document_hits'; }},
+        {title : 'Add Organization',          onClick : function(){ window.location = '/admin/add_organization'; }},
+        {title : 'Manage Organizations',      onClick : function(){ window.location = '/admin/organizations'; }},
+        {title : 'Manage Memberships',        onClick : function(){ window.location = '/admin/memberships'; }},
+        {title : 'Manage Featured Reporting', onClick : function(){ window.location = '/admin/featured'; }},
         {title : 'View CloudCrowd Console',   onClick : function(){ window.location = CLOUD_CROWD_SERVER; }},
         {title : 'Reprocess Last Failed Doc', onClick : this.reprocessFailedDocument},
         {title : 'Force a DB Backup to S3',   onClick : this.forceBackup},
         {title : 'Vacuum Analyze the DB',     onClick : this.vacuumAnalyze},
         {title : 'Optimize the Solr Index',   onClick : this.optimizeSolr},
         {title : 'Launch a Worker Instance',  onClick : this.launchWorker},
-        {title : 'Edit Featured Reporting',   onClick : function(){ window.location = '/admin/featured'; }},
         {title : 'Update Dashboard Stats',    onClick : function(){ window.location = '/admin/expire_stats'; }}
       ]
     });

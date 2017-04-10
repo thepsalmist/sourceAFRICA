@@ -149,8 +149,12 @@ class Annotation < ActiveRecord::Base
     public? && document.cacheable?
   end
 
+  def section_note?
+    location.nil?
+  end
+
   def coordinates
-    return nil unless location
+    return nil if section_note?
     coords = location.split(',').map { |loc| loc.to_i }
     transform_coordinates_to_legacy({
       top:    coords[0],
@@ -202,7 +206,9 @@ class Annotation < ActiveRecord::Base
 
   def iframe_embed_src_url(options={})
     options.merge!(embed: true)
-    "#{canonical_url(:html)}?#{options.to_query}"
+    # TODO: Replace with reference to `canonical_url` once it's safe to (#423)
+    agnostic_url = File.join(DC.server_root(agnostic: true), canonical_path(:html))
+    "#{agnostic_url}?#{options.to_query}"
   end
   
   def oembed_url

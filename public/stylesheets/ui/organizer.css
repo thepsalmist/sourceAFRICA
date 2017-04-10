@@ -28,6 +28,28 @@
 #organizer { display: none; }
 body.search_panel_tab #organizer { display:block; }
 
+  #organizer .section_title {
+    position: relative;
+    font-weight: bold;
+    color: #000;
+    padding: 7px 7px 7px 30px;
+    text-shadow: 0 1px 0 #fff;
+    border-bottom: 1px solid #ccc;
+    border-right: 2px solid #ccc;
+    font-size: 10px;
+    text-transform: uppercase;
+    zoom: 1;
+  }
+
+  #organizer .section_title_action {
+    position: absolute;
+    right: 7px;
+    text-decoration: underline;
+    font-weight: normal;
+    color: #888;
+    text-shadow: none;
+  }
+
 #organizer_projects,
 #entities {
   position: relative;
@@ -80,6 +102,26 @@ body.search_panel_tab #organizer { display:block; }
     border-bottom: 1px solid #e0e0e0;
   }
 
+#organizer #project_invitations .actions {
+  position: absolute;
+  top: 10px; right: 5px;
+}
+
+#organizer #project_invitations .hidden_invitation {
+  display: none;
+}
+  #organizer #project_invitations .hidden_invitation .title,
+  #organizer #project_invitations .hidden_invitation .meta {
+    color: #999;
+  }
+  #organizer #project_invitations.show_hidden_project_invitations .hidden_invitation {
+    display: block;
+  }
+
+#organizer.no_project_invitations #project_invitations {
+  display: none;
+}
+
 #organizer .account_links {
   display: none;
   color: #808080;
@@ -116,6 +158,13 @@ body.search_panel_tab #organizer { display:block; }
   }
     #organizer .box:hover, #organization_list .box:hover {
       background: #fff;
+    }
+    #organizer #project_invitations .box:hover {
+      cursor: default;
+      background: #f4f3f1;
+      background-image: url(/images/embed/ui/box_back.png);
+      background-repeat: repeat-y;
+      background-position: right top;
     }
   body.search_panel_tab #organizer .box.is_selected,
   body.search_panel_tab #organizer .box.is_selected:hover {
@@ -154,6 +203,9 @@ body.search_panel_tab #organizer { display:block; }
     #organization_list .box .last_word {
       white-space: nowrap;
     }
+    #organizer #project_invitations .box .title {
+      padding-right: 60px;
+    }
   #organizer .box .description,
   #organization_list .box .description {
     font-size: 11px;
@@ -161,6 +213,7 @@ body.search_panel_tab #organizer { display:block; }
     margin: 5px 0;
     color: #333;
   }
+  #organizer .box .meta,
   #organizer .box .counts,
   #organizer .top_level_search .text_link,
   #organization_list .box .counts {
@@ -169,6 +222,7 @@ body.search_panel_tab #organizer { display:block; }
     color: #808080;
   }
     #organizer .box .counts,
+    #organizer .box .meta,
     #organization_list .box .counts {
       line-height: 14px; margin: 2px 0 1px 0;
     }
@@ -296,10 +350,10 @@ body.search_panel_tab #organizer { display:block; }
 /*------------------------------- Scrolling ----------------------------------*/
 .scroll {
   position: absolute;
-  top: 5px; bottom: 5px; left: 0; right: 0;
+  top: 3px; bottom: 5px; left: 0; right: 0;
 }
   .scroll.not_active {
-    top: 5px; bottom: 15px;
+    top: 3px; bottom: 15px;
   }
   .scroll_content {
     position: absolute;

@@ -8,11 +8,20 @@ class Membership < ActiveRecord::Base
   belongs_to :organization
   belongs_to :account
 
-  scope :real,    ->{ where( ["memberships.role in (?)", REAL_ROLES] ) }
-  scope :default, ->{ where(:default=>true) }
+  scope :with_account, -> { references(:account).includes(:account) }
+  scope :real,         -> { where( ["memberships.role in (?)", REAL_ROLES] ) }
+  scope :default,      -> { where(:default=>true) }
 
   def real?
     REAL_ROLES.include?(role)
+  end
+
+  def active?
+    role && role != DISABLED
+  end
+
+  def role_name
+    ROLE_NAMES[role].to_s
   end
 
   def canonical( options = {} )

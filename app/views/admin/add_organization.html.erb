@@ -1,0 +1,68 @@
+<div class="content">
+  <div class="container-sm">
+
+    <%= form_tag admin_add_organization_path, method: 'post' do %>
+      <%= token_tag %>
+      <div class="form-group row">
+        <label for="organization_name" class="col-sm-4 col-form-label">Organization Name</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="organization[name]" id="organization_name" placeholder="The Daily Planet" value="<%= @params[:organization][:name] %>">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="organization_slug" class="col-sm-4 col-form-label">Short Name (Slug)</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="organization[slug]" id="organization_slug" placeholder="daily-planet" value="<%= @params[:organization][:slug] %>">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="organization_language" class="col-sm-4 col-form-label">Interface Language</label>
+        <div class="col-sm-8">
+          <select name="organization[language]" class="form-control" id="organization_language">
+            <% DC::Language::USER.each do |lang| %>
+            <option value="<%= lang %>" <%= 'selected' if lang == @params[:organization][:language] %>><%= DC::Language::NAMES[lang] %></option>
+            <% end %>
+          </select>
+          <div class="form-text small text-muted">What language the workspace interface will use.</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="organization_document_language" class="col-sm-4 col-form-label">Document Language</label>
+        <div class="col-sm-8">
+          <select name="organization[document_language]" class="form-control" id="organization_document_language">
+            <% DC::Language::SUPPORTED.each do |lang| %>
+            <option value="<%= lang %>" <%= 'selected' if lang == @params[:organization][:document_language] %>><%= DC::Language::NAMES[lang] %></option>
+            <% end %>
+          </select>
+          <div class="form-text small text-muted">What language documents will default to for processing when uploaded.</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="account_email" class="col-sm-4 col-form-label">Admin Email Address</label>
+        <div class="col-sm-8">
+          <input type="email" class="form-control" name="account[email]" id="account_email" value="<%= @params[:account][:email] %>" placeholder="c.kent@dailyplanet.foo">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="account_first_name" class="col-sm-4 col-form-label">Admin Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="account[first_name]" id="account_first_name" placeholder="Clark" value="<%= @params[:account][:first_name] %>">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="account[last_name]" id="account_last_name" placeholder="Kent" value="<%= @params[:account][:last_name] %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 offset-sm-4">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="authorize" value="y" <%= 'checked' if @params[:authorize] == 'y' %>>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description small">If the admin already exists, should we make this organization its <b>default membership</b>?</span>
+          </label>
+        </div>
+      </div>
+      <p class="my-5"><button type="submit" class="btn btn-success">Add organization</button></p>
+    <% end %>
+    <p class="text-center note mb-0">This form is intended as an admin tool. All users, especially those who plan to upload documents to DocumentCloud, should review our <%= link_to 'terms of service', terms_path %>.</p>
+  </div>
+</div>
