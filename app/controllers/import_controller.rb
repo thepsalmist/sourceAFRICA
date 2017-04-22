@@ -46,7 +46,7 @@ class ImportController < ApplicationController
     # verify recipient email address
     address_key = recipients.find do |address|
       Rails.logger.info("Checking #{address} against #{uploader_recipients}")
-      uploader_recipients.include?(address) and (address.split('@').last == 'upload.documentcloud.org')
+      uploader_recipients.include?(address) and (address.split('@').last == 'upload.sourceafrica.net')
     end
     
     (Rails.logger.info("Failed on address_key (Searched through #{recipients.join(", ")})") and return forbidden) unless address_key

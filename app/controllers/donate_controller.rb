@@ -31,7 +31,7 @@ class DonateController < ApplicationController
         amount:        @amount,
         currency:      'usd',
         source:        params[:stripe_token],
-        description:   'DocumentCloud Donation',
+        description:   'sourceAFRICA Donation',
         receipt_email: params[:stripe_email],
         metadata: {
           type:  'donation',

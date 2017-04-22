@@ -4,7 +4,7 @@
     <div class="DC-note-header">
       <% title    = content_tag :span, options[:note].title, { class: 'DC-note-title' } %>
       <% page_num = content_tag :span, "(p. #{options[:note].page_number})", { class: 'DC-note-page-number' } %>
-      <%= link_to "#{title} #{page_num}".html_safe, options[:note].contextual_url, { class: 'DC-note-embed-resource', title: "View the note “#{options[:note].title}” in its original document context on DocumentCloud in a new window or tab", target: '_blank' } %>
+      <%= link_to "#{title} #{page_num}".html_safe, options[:note].contextual_url, { class: 'DC-note-embed-resource', title: "View the note “#{options[:note].title}” in its original document context on sourceAFRICA in a new window or tab", target: '_blank' } %>
     </div>
     <% dimensions = options[:note].embed_dimensions %>
     <div class="DC-note-image-max-bounds" style="max-height:<%= dimensions[:height_pixel] %>px;max-width:<%= dimensions[:width_pixel] %>px;">
@@ -14,7 +14,7 @@
     </div>
     <div class="DC-note-body"><%= options[:note].content %></div>
     <div class="DC-note-credit">
-      <%= link_to "View entire document on <span class='DC-note-logotype-link'>sourceAFRICA</span>".html_safe, options[:note].contextual_url, { title: "View the note “#{options[:note].title}” in its original document context on DocumentCloud in a new window or tab", target: '_blank' } %>
+      <%= link_to "View entire document on <span class='DC-note-logotype-link'>sourceAFRICA</span>".html_safe, options[:note].contextual_url, { title: "View the note “#{options[:note].title}” in its original document context on sourceAFRICA in a new window or tab", target: '_blank' } %>
     </div>
     <div class="DC-note-background-fader"></div>
   </div>
