@@ -15,17 +15,17 @@
     <% len = (@contributors.length / 3).ceil %>
     <ul class="bullet column one">
     <% @contributors[0...len].each do |name, url, title| %>
-      <li><a href="<%= h(url) %>"<%=if title then " title=\"#{h(title)}\"" end %>><%= h(name) %></a></li>
+      <li><a href="<%= h(url) %>" <%=if title then " title=\"#{h(title)}\"" end %> target="_blank" rel="noopener"><%= h(name) %></a></li>
     <% end %>
     </ul>
     <ul class="bullet column two">
     <% @contributors[len...(len * 2)].each do |name, url, title| %>
-      <li><a href="<%= h(url) %>"<%=if title then " title=\"#{h(title)}\"" end %>><%= h(name) %></a></li>
+      <li><a href="<%= h(url) %>"<%=if title then " title=\"#{h(title)}\"" end %> target="_blank" rel="noopener"><%= h(name) %></a></li>
     <% end %>
     </ul>
     <ul class="bullet column three">
     <% @contributors[(len * 2)...@contributors.length].each do |name, url, title| %>
-      <li><a href="<%= h(url) %>"<%=if title then " title=\"#{h(title)}\"" end %>><%= h(name) %></a></li>
+      <li><a href="<%= h(url) %>"<%=if title then " title=\"#{h(title)}\"" end %> target="_blank" rel="noopener"><%= h(name) %></a></li>
     <% end %>
     </ul>
   </div>
