@@ -12,18 +12,17 @@
     <!-- Description of the entity making this policy statement. -->
     <ENTITY>
     <DATA-GROUP>
-<DATA ref="#business.contact-info.telecom.telephone.number">TBD</DATA>
-<DATA ref="#business.contact-info.online.email">support@codeforafrica.org</DATA>
-<DATA ref="#business.contact-info.online.uri">http://www.codeforafrica.org/</DATA>
-<DATA ref="#business.contact-info.postal.organization">Code for Africa</DATA>
-<DATA ref="#business.contact-info.postal.street">Nairobi Startup Garage
-Ngong Road
-Piedmont Plaza</DATA>
-<DATA ref="#business.contact-info.postal.city">Nairobi</DATA>
-<DATA ref="#business.contact-info.postal.stateprov">Nairobi</DATA>
-<DATA ref="#business.contact-info.postal.postalcode">00100</DATA>
-<DATA ref="#business.contact-info.postal.country">Kenya</DATA>
-<DATA ref="#business.name">Code for Africa</DATA>
+        <DATA ref="#business.contact-info.telecom.telephone.number">TBD</DATA>
+        <DATA ref="#business.contact-info.online.email">support@codeforafrica.org</DATA>
+        <DATA ref="#business.contact-info.online.uri">https://codeforafrica.org/</DATA>
+        <DATA ref="#business.contact-info.postal.organization">Code for Africa</DATA>
+        <DATA ref="#business.contact-info.postal.street">Nairobi Garage
+        Pinetree Plaza, Kaburu Dr.</DATA>
+        <DATA ref="#business.contact-info.postal.city">Nairobi</DATA>
+        <DATA ref="#business.contact-info.postal.stateprov">Nairobi</DATA>
+        <DATA ref="#business.contact-info.postal.postalcode">00100</DATA>
+        <DATA ref="#business.contact-info.postal.country">Kenya</DATA>
+        <DATA ref="#business.name">Code for Africa</DATA>
     </DATA-GROUP>
     </ENTITY>
 

@@ -14,7 +14,10 @@ You can view the entire license [here](http://choosealicense.com/licenses/gpl-3.
 DocumentCloud MIT License
 -------------------------
 
-Copyright (c) 2011 DocumentCloud, Investigative Reporters & Editors
+Copyright (c) 2009-2011 DocumentCloud
+Copyright (c) 2011-2017 Investigative Reporters & Editors
+Copyright (c) 2017-     DocumentCloud
+
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
