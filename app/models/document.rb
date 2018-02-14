@@ -877,6 +877,9 @@ class Document < ActiveRecord::Base
     ).queue
   end
 
+  # you probably want to call this as
+  # Document.duplicate(ids, account, 
+  #  {projects: project_ids, include_sections: true, include_docdata: true, include_annotations: true})
   def self.duplicate(document_ids, account, options={})
     RestClient.post(DC::CONFIG['cloud_crowd_server'] + '/jobs', {:job => {
       'action'  => 'duplicate_documents',
@@ -888,6 +891,11 @@ class Document < ActiveRecord::Base
   end
 
   # Create an identical clone of this document, in all ways (except for the ID).
+  # toggles to include various aspects of documents:
+  # include_docdata => true/false
+  # include_sections => true/false
+  # include_annotations => true/false & conditioned on if the recipient should be treated as owner
+  # include_project => true/false: copy the documents into the same projects the original doc is in.
   def duplicate!(recipient=nil, options={})
     Document.transaction do
       # Clone the document.
@@ -904,9 +912,8 @@ class Document < ActiveRecord::Base
 
       # Clone the docdata.
       if docdata and options['include_docdata']
-        Docdata.create! docdata.attributes.merge newattrs
+        Docdata.create! document_id: copy_id, data: docdata.data
       end
-      
 
       # Clone the associations.
       associations = [entities, entity_dates, pages]

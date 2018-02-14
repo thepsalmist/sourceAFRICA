@@ -6,7 +6,8 @@
   current:     true
   description: 'Still in draft.'
   start:       '2016-05-25'
+  end:         '2017-07-31'
 - version:     2.1
   current:     true
-  description: 'Upgrade to DocumentCloud v2.1'
+  description: 'DocumentCloud moves to its own independent non-profit.'
   start:       '2017-08-01'

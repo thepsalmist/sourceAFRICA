@@ -1,3 +1,6 @@
+require 'addressable/uri'
+require 'openssl'
+
 class HomeController < ApplicationController
   include DC::Access
 
@@ -47,12 +50,54 @@ class HomeController < ApplicationController
     @canonical_url = api_terms_url if @version == @current_terms['version']
     render layout: 'new', template: "home/api_terms/show"
   end
+  
+  def status
+    not_found
+  end
 
   def privacy
     render layout: 'new'
   end
 
   def faq
+    render layout: 'new'
+  end
+  
+  def quackbot
+    if current_account
+      user_data = {email: current_account.email, slug: current_organization.slug}
+      # user_data = {email: 'ted@knowtheory.net', slug: 'biffud'}
+      cipher = OpenSSL::Cipher::AES.new(256, :CBC)
+      cipher.encrypt
+      
+      key = Base64.decode64(DC::SECRETS["quackbot_cipher_key"])
+      iv  = cipher.random_iv
+      
+      cipher.key = key
+      cipher.iv = iv
+      
+      encrypted = cipher.update(user_data.to_json) + cipher.final
+      
+      state_data = "#{Base64.encode64(encrypted)}--#{Base64.encode64(iv).chomp}"
+      
+      #msg, ivStr = state_data.split("--").map{|str| Base64.decode64(str)}
+      #
+      #decipher = OpenSSL::Cipher::AES.new(256, :CBC)
+      #decipher.decrypt
+      #decipher.key = key
+      #decipher.iv = ivStr
+      #
+      #plain = decipher.update(msg) + decipher.final
+      
+      @slack_url = Addressable::URI.parse("https://slack.com/oauth/authorize")
+      @slack_url.query_values = {
+        client_id: "2309601577.242920041892",
+        scope: "bot,chat:write:bot,emoji:read,files:read,links:write,im:read,im:write,incoming-webhook,commands",
+        state: state_data
+      }
+
+    end
+    
     render layout: 'new'
   end
 
