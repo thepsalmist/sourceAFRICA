@@ -4,6 +4,14 @@ module DC
   # in a fashion that is (hopefully) easy to configure.
   module Sanitized
 
+    # Unescape HTML in a safe fashion, allowing nil values to pass through
+    def safe_unescape(s)
+      unless s.nil?
+        return CGI.unescape_html(s)
+      end
+      s
+    end
+
     # Strip all HTML from a string.
     def strip(s)
       Sanitize.clean(s)
@@ -34,7 +42,7 @@ module DC
       # Text attributes are stripped of HTML before they are saved.
       def text_attr(*attrs)
         attrs.each do |att|
-          class_eval "def #{att}=(val); self[:#{att}] = strip(val); end"
+          class_eval "def #{att}=(val); self[:#{att}] = safe_unescape(strip(val)); end"
         end
       end
       
